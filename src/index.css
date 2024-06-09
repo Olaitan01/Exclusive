@@ -28,14 +28,15 @@ body{
   
 }
 
-.saleCountdown::before{
-  content: "Today's";
-  border-left: 1em solid #E11D48;
+/* section header styling */
+.title::before{
+  content: "";
+  border: .5em solid #E11D48;
   color: #E11D48;
   position: absolute;
   left: 0;
-  top: 0;
-  padding:0 0 0 .5em ;
+  height: 4vh;
+  border-radius: .2em;
   
 }
 

@@ -1,14 +1,16 @@
 import Hero from "../components/Hero";
 import SaleCountdown from "../components/SaleCountdown";
 import FlashSalesProducts from "../components/FlashSalesProducts";
-const HomePage =()=> {
+import Category from "../components/Category";
+const HomePage = () => {
   return (
     <>
       <Hero />
-      <SaleCountdown/>
-        <FlashSalesProducts/>
+      <SaleCountdown />
+      <FlashSalesProducts />
+      <Category />
     </>
   );
-}
+};
 
 export default HomePage;
