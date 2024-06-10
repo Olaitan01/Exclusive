@@ -92,11 +92,11 @@ function SectionHeader({
 }
 
 SectionHeader.propTypes = {
-  isFlashSales: PropTypes.bool.isRequired,
-  isFlashSalesBtn: PropTypes.bool.isRequired,
-  headerTitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  marginTop: PropTypes.string.isRequired,
+  isFlashSales: PropTypes.bool,
+  isFlashSalesBtn: PropTypes.bool,
+  headerTitle: PropTypes.string,
+  title: PropTypes.string,
+  marginTop: PropTypes.string,
 };
 
 export default SectionHeader;

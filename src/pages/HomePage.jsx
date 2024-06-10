@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import SaleCountdown from "../components/SaleCountdown";
 import FlashSalesProducts from "../components/FlashSalesProducts";
 import Category from "../components/Category";
+import BestSelling from "../components/BestSelling";
 const HomePage = () => {
   return (
     <>
@@ -9,6 +10,7 @@ const HomePage = () => {
       <SaleCountdown />
       <FlashSalesProducts />
       <Category />
+      <BestSelling/>
     </>
   );
 };
