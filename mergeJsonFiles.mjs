@@ -14,10 +14,16 @@ const flashSales = JSON.parse(await readFile(flashSalesPath, 'utf-8'));
 const bestSellingPath = path.join(__dirname, 'src/json/BestSelling.json');
 const bestSelling = JSON.parse(await readFile(bestSellingPath, 'utf-8'));
 
+// Read products.json
+const productsPath = path.join(__dirname, 'src/json/products.json');
+const products = JSON.parse(await readFile(productsPath, 'utf-8'));
+
+
 // Combine data
 const combinedData = {
   flashSales,
-  bestSelling
+  bestSelling,
+  products
 };
 
 // Write to db.json

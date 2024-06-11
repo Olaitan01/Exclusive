@@ -2,16 +2,14 @@ import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import AddToCartbtn from "./AddToCartbtn";
 import fiveStars from "../assets/images/Five star.png";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
-function ProductListing({products,imageMap, display = 'block'}) {
-
-  
+function ProductListing({ products, imageMap, display = "block", flex ="flex-nowrap" }) {
   return (
-    <div className="  my-10 justify-center w-full">
-      <div className="flex justify-between items-start gap-6">
+    <div className="  my-8 justify-center w-full">
+      <div className={`flex  items-stretch  overflow-hidden w-full  justify-between gap-6 ${flex}`}>
         {products.map((flashProduct, index) => (
-          <div key={index} className="product  w-full cursor-pointer">
+          <div key={index} className="product w-[20%] cursor-pointer">
             <div>
               <div className="bg-productBg  relative h-[30vh]  flex items-center justify-center  rounded-md overflow-hidden">
                 <img
@@ -19,7 +17,9 @@ function ProductListing({products,imageMap, display = 'block'}) {
                   alt={flashProduct.name}
                   className="max-w-full"
                 />
-                <span className={`${display} absolute top-2 left-4 rounded-[.5em] bg-buttonColor px-3 py-1 text-primary text-[0.7rem] font-light`}>
+                <span
+                  className={`${display} absolute top-2 left-4 rounded-[.5em] bg-buttonColor px-3 py-1 text-primary text-[0.7rem] font-light`}
+                >
                   {flashProduct.percentage}
                 </span>
                 <div className="absolute top-2 right-4 gap-2 flex flex-col">
@@ -34,10 +34,10 @@ function ProductListing({products,imageMap, display = 'block'}) {
                 </span>
                 <div className="text-[0.8rem] flex gap-2 ">
                   <span className="text-buttonColor   ">
-                    {flashProduct.price}
+                    ${flashProduct.price}
                   </span>
                   <span className="text-gray-400 line-through">
-                    {flashProduct.discount}
+                    ${flashProduct.discount}
                   </span>
                 </div>
                 <div className="text-gray-400 text-[0.8rem] flex gap-2">
@@ -53,10 +53,11 @@ function ProductListing({products,imageMap, display = 'block'}) {
   );
 }
 
-ProductListing.propTypes ={
- 
-  products:  PropTypes.array.isRequired,
-  imageMap:  PropTypes.object.isRequired
-}
+ProductListing.propTypes = {
+  products: PropTypes.array.isRequired,
+  imageMap: PropTypes.object.isRequired,
+  display: PropTypes.string.isRequired,
+  flex: PropTypes.string.isRequired
+};
 
 export default ProductListing;

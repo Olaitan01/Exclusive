@@ -9,7 +9,8 @@ function SectionHeader({
   isFlashSales = false,
   isFlashSalesBtn = false,
   title = "Today's",
-  marginTop
+  marginTop,
+  display = "block",
 }) {
   // is the product flash sales or not function
 
@@ -56,13 +57,14 @@ function SectionHeader({
   //   Flash sales countdown end
 
   return (
-    <div className="items-center w-[90vw] m-auto mt-[8em]">
+    <div className="items-center w-[90vw] m-auto mt-[4em]">
       <span className=" relative   title text-buttonColor text-sm  pl-6 font-normal">
         {title}
       </span>
       <div className={`${marginTop} flex justify-between `}>
         <div className="text-3xl font-bold flex flex-col desktop:flex-row justify-between items-end gap-[2em]">
           <span className="inline-block ">{headerTitle}</span>
+
           {!isFlashSales && (
             <div className="flex flex-col items-center">
               <div className="text-[0.5rem] text-center font-normal flex justify-between w-full">
@@ -83,7 +85,7 @@ function SectionHeader({
             </div>
           )}
         </div>
-        <div>
+        <div className={`${display}`}>
           {!isFlashSalesBtn ? <RoundedButtons /> : <ViewAllBtns px="px-4" />}
         </div>
       </div>
@@ -97,6 +99,7 @@ SectionHeader.propTypes = {
   headerTitle: PropTypes.string,
   title: PropTypes.string,
   marginTop: PropTypes.string,
+  display: PropTypes.string,
 };
 
 export default SectionHeader;
