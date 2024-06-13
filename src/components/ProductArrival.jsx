@@ -1,4 +1,5 @@
 import SectionHeader from "./SectionHeader";
+import ArrivalGrid from "./ArrivalGrid";
 function ProductArrival() {
   return (
     <div>
@@ -9,6 +10,8 @@ function ProductArrival() {
         isFlashSales={true}
         display="hidden"
       />
+      <ArrivalGrid/>
+
     </div>
   );
 }
