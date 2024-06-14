@@ -2,10 +2,10 @@ import ViewAllBtn from "./ViewAllBtn";
 import jblSpeaker from "../assets/images/Frame 694.png";
 function CategoryFlier() {
   return (
-    <div className="flex justify-between items-center w-[90vw] m-auto bg-black p-12 my-10">
+    <div className="flex flex-col-reverse desktop:flex-row justify-between items-center w-[90vw] m-auto bg-black p-12 my-10">
       <div className="flex flex-col gap-8">
         <span className="text-[0.8rem] text-lime block">Categories</span>
-        <span className="text-5xl font-bold text-primary block w-[60%] overflow-hidden ">
+        <span className="text-2xl desktop:text-5xl font-bold text-primary block w-[60%] overflow-hidden ">
           Enhance Your Music Experience
         </span>
         <div className="flex items-center gap-4">

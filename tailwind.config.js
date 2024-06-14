@@ -3,16 +3,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors:{
-        primary:"#ffffff",
-        primaryBlk:"#000000",
+      colors: {
+        primary: "#ffffff",
+        primaryBlk: "#000000",
         menuBg: "#CBE4E8",
         productBg: "#F4F4F6",
-        buttonColor:"#E11D48",
-        lime: "#00FF66"
-      }
+        buttonColor: "#E11D48",
+        lime: "#00FF66",
+      },
     },
-    
+
     screens: {
       mobile: [
         {

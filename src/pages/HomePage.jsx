@@ -6,6 +6,7 @@ import BestSelling from "../components/BestSelling";
 import CategoryFlier from "../components/CategoryFlier";
 import Products from "../components/Products";
 import ProductArrival from "../components/ProductArrival";
+import Services from "../components/Services";
 
 const HomePage = () => {
   return (
@@ -14,10 +15,11 @@ const HomePage = () => {
       <SaleCountdown />
       <FlashSalesProducts />
       <Category />
-      <BestSelling/>
-      <CategoryFlier/>
-      <Products/>
-      <ProductArrival/>
+      <BestSelling />
+      <CategoryFlier />
+      <Products />
+      <ProductArrival />
+      <Services />
     </>
   );
 };

@@ -9,7 +9,7 @@ function ViewAllBtn({
   return (
     <div>
       <button
-        className={`${px} flex ${m} ${bg} text-primary rounded-md py-2 text-center`}
+        className={`${px} flex ${m} ${bg}  text-primary rounded-md py-2 text-center`}
       >
         {buttonText}
       </button>

@@ -10,8 +10,7 @@ function ProductArrival() {
         isFlashSales={true}
         display="hidden"
       />
-      <ArrivalGrid/>
-
+      <ArrivalGrid />
     </div>
   );
 }
