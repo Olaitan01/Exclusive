@@ -7,12 +7,19 @@ import { CiTwitter } from "react-icons/ci";
 import { PiInstagramLogoLight } from "react-icons/pi";
 import { RiLinkedinLine } from "react-icons/ri";
 function Footer() {
+
+  const footerLink ={
+    padding: "0.5em 0em",
+    display:"flex",
+    flexDirection: "column",
+    gap:".5em"
+  }
   return (
-    <div className="flex flex-col justify-center items-center bg-black  ">
-      <div className="text-primary text-sm  flex flex-wrap justify-between items-start w-full p-[4em]">
+    <div className="flex flex-col  justify-center items-center bg-black  ">
+      <div className="text-primary text-sm  flex flex-wrap gap-6 desktop:gap-0 justify-between items-start w-full p-[4em]">
         <div>
           <span className="text-lg font-medium">Exclusive</span>
-          <ul>
+          <ul style={footerLink}>
             <li>Subscribe</li>
             <li>Get 10 off your first order</li>
             <li className="relative ">
@@ -27,7 +34,7 @@ function Footer() {
         </div>
         <div>
           <span className="text-lg font-medium">Support</span>
-          <ul>
+          <ul style={footerLink}>
             <li>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</li>
             <li>exclusive@gmail.com</li>
             <li>+88015-88888-9999</li>
@@ -35,7 +42,7 @@ function Footer() {
         </div>
         <div>
           <span className="text-lg font-medium">Account</span>
-          <ul>
+          <ul style={footerLink}>
             <li>My Account</li>
             <li>Login/Register</li>
             <li>Cart</li>
@@ -45,14 +52,14 @@ function Footer() {
         </div>
         <div>
           <span className="text-lg font-medium">Quick Link</span>
-          <ul>
+          <ul style={footerLink}>
             <li>Privacy</li>
             <li>Terms of Use</li>
             <li>FAQ</li>
             <li>Contact</li>
           </ul>
         </div>
-        <div>
+        <div style={footerLink}>
           <span className="text-lg font-medium">Download App</span>
           <div>
             <span>Save $3 with App New User Only</span>
@@ -91,7 +98,7 @@ function Footer() {
         </div>
       </div>
 
-      <div>
+      <div className="text-center text-sm font-light text-gray-500 border-t-[0.5px] border-solid border-gray-500 w-full py-6">
         &copy; Copyright Rimel {new Date().getFullYear()}. All right reserved
       </div>
     </div>

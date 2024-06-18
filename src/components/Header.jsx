@@ -34,7 +34,7 @@ function Header() {
         {/* Header Navs */}
         <div
           ref={mobileMenu}
-          className="flex flex-col absolute gap-6  desktop:gap-0 inset-x-[100em] desktop:inset-0 pl-[3em] pt-[8em] desktop:pl-0 desktop:pt-0 bg-menuBg desktop:bg-transparent h-full  bottom-0 w-full  desktop:flex-row desktop:relative desktop:justify-between desktop:items-center desktop:w-[55em]"
+          className="z-[10] desktop:z-0 flex flex-col absolute gap-6  desktop:gap-0 inset-x-[100em] desktop:inset-0 pl-[3em] pt-[8em] desktop:pl-0 desktop:pt-0 bg-menuBg desktop:bg-transparent h-full  bottom-0 w-full  desktop:flex-row desktop:relative desktop:justify-between desktop:items-center desktop:w-[55em]"
         >
           <div>
             <ul className=" flex flex-col gap-6 desktop:gap-0 desktop:flex-row desktop:justify-between font-normal text-2xl  desktop:text-[1rem]  desktop:w-[20vw] ">

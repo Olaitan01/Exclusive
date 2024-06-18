@@ -4,12 +4,20 @@ import AddToCartbtn from "./AddToCartbtn";
 import fiveStars from "../assets/images/Five star.png";
 import PropTypes from "prop-types";
 
-function ProductListing({ products, imageMap, display = "block", flex ="flex-nowrap" }) {
+function ProductListing({
+  products,
+  imageMap,
+  display = "block",
+  flex = "flex-nowrap",
+  width= "w-[15%]"
+}) {
   return (
     <div className="  my-8 justify-center w-full">
-      <div className={`flex  items-stretch  overflow-hidden w-full  justify-between gap-6 ${flex}`}>
+      <div
+        className={`flex  items-stretch  overflow-hidden desktop:w-full  justify-between  desktop:gap-6 ${flex}`}
+      >
         {products.map((flashProduct, index) => (
-          <div key={index} className="product w-[20%] cursor-pointer">
+          <div key={index} className={`product desktop:${width} cursor-pointer`}>
             <div>
               <div className="bg-productBg  relative h-[30vh]  flex items-center justify-center  rounded-md overflow-hidden">
                 <img
@@ -57,7 +65,8 @@ ProductListing.propTypes = {
   products: PropTypes.array.isRequired,
   imageMap: PropTypes.object.isRequired,
   display: PropTypes.string.isRequired,
-  flex: PropTypes.string.isRequired
+  flex: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired,
 };
 
 export default ProductListing;

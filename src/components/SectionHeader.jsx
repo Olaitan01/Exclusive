@@ -9,7 +9,7 @@ function SectionHeader({
   isFlashSales = false,
   isFlashSalesBtn = false,
   title = "Today's",
-  marginTop,
+  marginTop ="mt-8",
   display = "block",
 }) {
   // is the product flash sales or not function
@@ -53,7 +53,7 @@ function SectionHeader({
     return () => {
       clearInterval(currentInterval);
     };
-  }, []);
+  }, [isFlashSales]);
   //   Flash sales countdown end
 
   return (
@@ -61,9 +61,9 @@ function SectionHeader({
       <span className=" relative   title text-buttonColor text-sm  pl-6 font-normal">
         {title}
       </span>
-      <div className={`${marginTop} flex justify-between `}>
-        <div className="text-3xl font-bold flex flex-col desktop:flex-row justify-between items-end gap-[2em]">
-          <span className="inline-block ">{headerTitle}</span>
+      <div className={`${marginTop} flex justify-between  `}>
+        <div className="text-3xl font-bold flex flex-col desktop:flex-row justify-between desktop:items-end gap-[.5em] desktop:gap-[2em]">
+          <span className="block text-[.8em] desktop:text-[1em] ">{headerTitle}</span>
 
           {!isFlashSales && (
             <div className="flex flex-col items-center">
@@ -86,7 +86,7 @@ function SectionHeader({
           )}
         </div>
         <div className={`${display}`}>
-          {!isFlashSalesBtn ? <RoundedButtons /> : <ViewAllBtns px="px-4" />}
+          {!isFlashSalesBtn ? <RoundedButtons /> : <ViewAllBtns px="px-2" />}
         </div>
       </div>
     </div>

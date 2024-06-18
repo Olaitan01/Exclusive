@@ -39,7 +39,7 @@ useEffect(()=>{
   return (
     <div className="w-[90vw] m-auto">
         <SectionHeader title="Our Products" headerTitle="Explore Our Products" isFlashSales={true} marginTop="mt-8"/>
-        <ProductListing products={isProducts} imageMap={imageMap} display="hidden" flex="flex-wrap"/>
+        <ProductListing products={isProducts} imageMap={imageMap} display="hidden" flex="flex-wrap" width="w-[20%]"/>
         <ViewAllBtn/>
     </div>
   )

@@ -34,7 +34,7 @@ useEffect(()=>{
   return (
     <div className="w-[90vw] m-auto ">
         <SectionHeader isFlashSales ={true} headerTitle="Best Selling Products" title="This Month" marginTop="mt-8" isFlashSalesBtn={true}/>
-        <ProductListing products={isBestSelling} imageMap={imageMap} display ={"hidden"}/>
+        <ProductListing products={isBestSelling} imageMap={imageMap} display ={"hidden"} flex="flex-wrap"  />
     </div>
   )
 }

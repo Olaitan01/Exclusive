@@ -33,8 +33,8 @@ function FlashSalesProducts() {
   }, []);
 
   return (
-    <div className="ml-16 pb-10 border-b-2 border-solid border-gray-100">
-      <ProductListing products={flashProducts} imageMap={imageMap} />
+    <div className="desktop:ml-16 desktop:pb-10 p-6 desktop:p-0  border-b-2 border-solid border-gray-100 overflow-hidden">
+      <ProductListing products={flashProducts} imageMap={imageMap}  flex="flex-wrap"  />
       <ViewAllBtn />
     </div>
     
