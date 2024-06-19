@@ -14,16 +14,16 @@ function ProductListing({
   return (
     <div className="  my-8 justify-center w-full">
       <div
-        className={`flex  items-stretch  overflow-hidden desktop:w-full  justify-between  desktop:gap-6 ${flex}`}
+        className={`flex   items-stretch  overflow-hidden desktop:w-full justify-center gap-2 desktop:justify-between  desktop:gap-6 ${flex} `}
       >
         {products.map((flashProduct, index) => (
-          <div key={index} className={`product desktop:${width} cursor-pointer`}>
-            <div>
-              <div className="bg-productBg  relative h-[30vh]  flex items-center justify-center  rounded-md overflow-hidden">
+          <div key={index} className={`product w-[48%] desktop:${width} cursor-pointer `}>
+            <div >
+              <div className="bg-productBg  relative  h-[30vh]  flex items-center justify-center  rounded-md overflow-hidden">
                 <img
                   src={imageMap[flashProduct.imageUrl]}
                   alt={flashProduct.name}
-                  className="max-w-full"
+                  className="max-w-full  object-fill p-2"
                 />
                 <span
                   className={`${display} absolute top-2 left-4 rounded-[.5em] bg-buttonColor px-3 py-1 text-primary text-[0.7rem] font-light`}

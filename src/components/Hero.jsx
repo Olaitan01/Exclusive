@@ -23,7 +23,7 @@ function Hero() {
       </div>
       <div className="flex items-center justify-between bg-black text-[#ffffff] p-4 desktop:px-8 mt-6">
         <div className="flex flex-col items-start gap-4">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 desktop:gap-8">
             <img src={apple} alt="iPhone Apple logo" className="w-max" />
             <span className="text-xs desktop:text-sm font-light">iPhone 14 Series</span>
           </div>
@@ -32,8 +32,8 @@ function Hero() {
           </p>
 
           <button className="flex  items-center cursor-pointer">
-            <span className="font-light border-b-[0.1px] border-solid border-[#ffffff]">Shop Now</span>
-            <GoArrowRight color="#ffffff" className="ml-4"/>
+            <span className="font-light text-xs desktop:text-sm border-b-[0.1px] border-solid border-[#ffffff]">Shop Now</span>
+            <GoArrowRight color="#ffffff" className="ml-2 desktop:ml-4"/>
           </button>
         </div>
         <div>

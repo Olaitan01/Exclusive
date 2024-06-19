@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { BsSearch } from "react-icons/bs";
 import { BsHeart } from "react-icons/bs";
 import { BsCart3 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import { useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
+import Search from "./Search";
 
 import logo from "../assets/images/exclusive-logo.png";
 
@@ -76,16 +76,8 @@ function Header() {
 
           <div className="flex gap-[2em]  desktop:justify-between items-center pl-2 pr-2 ">
             {/* search box */}
-            <div className="inline-block relative">
-              <input
-                type="text"
-                placeholder="what are you looking for?"
-                className="desktop:block hidden w-full rounded-md border-0  py-1.5 pl-2 pr-20 text-[#A0A3BD] ring-1 ring-inset ring-[#D9DBE9] bg-[#EFF0F6] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D9DBE9] sm:text-sm sm:leading-6 font-light"
-              />
-              <BsSearch
-                color="#000000"
-                className="desktop:absolute top-1/4 right-2 "
-              />
+            <div >
+             <Search/>
             </div>
             {/* likes button */}
             <button className="m-4">

@@ -24,7 +24,7 @@ const imageMap = {
 useEffect(()=>{
     const FetchBestSelling= async() =>{
         const data = await FetchData("http://localhost:8000/bestSelling")
-        console.log(data.BestSelling[0])
+  
         setIsBestSelling(data.BestSelling)
     }
 

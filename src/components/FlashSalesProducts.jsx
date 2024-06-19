@@ -24,7 +24,6 @@ function FlashSalesProducts() {
   useEffect(() => {
     const fetchProducts = async() => {
       const data = await FetchData("http://localhost:8000/flashSales");
-      console.log(data.flashProducts)
       setFlashProducts(data.flashProducts);
     };
   
@@ -34,7 +33,7 @@ function FlashSalesProducts() {
 
   return (
     <div className="desktop:ml-16 desktop:pb-10 p-6 desktop:p-0  border-b-2 border-solid border-gray-100 overflow-hidden">
-      <ProductListing products={flashProducts} imageMap={imageMap}  flex="flex-wrap"  />
+      <ProductListing products={flashProducts} imageMap={imageMap}  flex="flex-wrap"   />
       <ViewAllBtn />
     </div>
     
