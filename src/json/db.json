@@ -5,7 +5,7 @@
         "id": 1,
         "name": "HAVIT HV-G92 Gamepad",
         "price": 120,
-        "discount": 160,
+        "discount": "$160",
         "quantity": 88,
         "percentage": "-40%",
         "imageUrl": "Gamepad"
@@ -14,7 +14,7 @@
         "id": 2,
         "name": "AK-900 Wired keyboard",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 75,
         "percentage": "-35%",
         "imageUrl": "keyboard"
@@ -23,7 +23,7 @@
         "id": 3,
         "name": "IPS LCD Gaming Monitor",
         "price": 370,
-        "discount": 400,
+        "discount": "$400",
         "quantity": 88,
         "percentage": "-30%",
         "imageUrl": "Gaming-monitor"
@@ -32,7 +32,7 @@
         "id": 4,
         "name": "S-Series Comfort Chair",
         "price": 375,
-        "discount": 400,
+        "discount": "$400",
         "quantity": 99,
         "percentage": "-25%",
         "imageUrl": "Comfort chair"
@@ -41,7 +41,7 @@
         "id": 5,
         "name": "ASUS FHD Gaming Laptop",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 65,
         "percentage": "-35%",
         "imageUrl": "Gaming laptop"
@@ -50,7 +50,7 @@
         "id": 6,
         "name": "Gucci duffle bag",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 40,
         "percentage": "-35%",
         "imageUrl": "Gucci bag"
@@ -63,7 +63,7 @@
         "id": 1,
         "name": "The north coat",
         "price": 260,
-        "discount": 360,
+        "discount": "$360",
         "quantity": 65,
         "imageUrl": "Rain Coat"
       },
@@ -71,7 +71,7 @@
         "id": 2,
         "name": "Gucci duffle bag",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 65,
         "imageUrl": "Gucci Bag"
       },
@@ -79,7 +79,7 @@
         "id": 3,
         "name": "RGB liquid CPU Cooler",
         "price": 160,
-        "discount": 4170,
+        "discount": "$4170",
         "quantity": 65,
         "imageUrl": "CPU Cooler"
       },
@@ -87,16 +87,14 @@
         "id": 4,
         "name": "Small BookShelf",
         "price": 360,
-        "discount": "",
         "quantity": 65,
-        "percentage": "",
         "imageUrl": "Small BookShelf"
       },
       {
         "id": 5,
         "name": "ASUS FHD Gaming Laptop",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 65,
         "percentage": "-35%",
         "imageUrl": "Gaming laptop"
@@ -105,9 +103,7 @@
         "id": 6,
         "name": "CANON EOS DLSR Camera",
         "price": 360,
-        "discount": "",
         "quantity": 65,
-        "percentage": "",
         "imageUrl": "CANON Camera"
       }
     ]
@@ -173,80 +169,79 @@
         "imageUrl": "Jacket"
       },
       {
-        "id": 1,
+        "id": 9,
         "name": "HAVIT HV-G92 Gamepad",
         "price": 120,
-        "discount": 160,
+        "discount": "$160",
         "quantity": 88,
         "percentage": "-40%",
         "imageUrl": "Gamepad"
       },
       {
-        "id": 2,
+        "id": 10,
         "name": "AK-900 Wired keyboard",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 75,
         "percentage": "-35%",
         "imageUrl": "keyboard"
       },
       {
-        "id": 3,
+        "id": 11,
         "name": "IPS LCD Gaming Monitor",
         "price": 370,
-        "discount": 400,
+        "discount": "$400",
         "quantity": 88,
         "percentage": "-30%",
         "imageUrl": "Gaming-monitor"
       },
       {
-        "id": 4,
+        "id": 12,
         "name": "S-Series Comfort Chair",
         "price": 375,
-        "discount": 400,
+        "discount": "$400",
         "quantity": 99,
         "percentage": "-25%",
         "imageUrl": "Comfort chair"
       },
       {
-        "id": 5,
+        "id": 13,
         "name": "ASUS FHD Gaming Laptop",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 65,
         "percentage": "-35%",
         "imageUrl": "Gaming laptop"
       },
       {
-        "id": 6,
+        "id": 14,
         "name": "Gucci duffle bag",
         "price": 960,
-        "discount": 1160,
+        "discount": "$1160",
         "quantity": 40,
         "percentage": "-35%",
         "imageUrl": "Gucci bag"
       },
       {
-        "id": 1,
+        "id": 15,
         "name": "The north coat",
         "price": 260,
-        "discount": 360,
+        "discount": "$360",
         "quantity": 65,
         "imageUrl": "Rain Coat"
       },
       {
-        "id": 3,
+        "id": 16,
         "name": "RGB liquid CPU Cooler",
         "price": 160,
-        "discount": 4170,
+        "discount": "$4170",
         "quantity": 65,
         "imageUrl": "CPU Cooler"
       },
       {
-        "id": 4,
+        "id": 17,
         "name": "Small BookShelf",
         "price": 360,
-        "discount": "",
         "quantity": 65,
         "percentage": "",
         "imageUrl": "Small BookShelf"

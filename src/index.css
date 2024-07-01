@@ -44,3 +44,7 @@ body{
   bottom: 0;
   transition: bottom .2s ease-in-out;
 }
+
+.togglebg{
+  background-color: aqua;
+}

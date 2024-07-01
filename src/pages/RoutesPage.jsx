@@ -3,6 +3,7 @@ import HomePage from "./HomePage";
 export const RoutesPage = [
   {
     path: "/",
-    component: <HomePage />,
+    component: HomePage ,
+    requiresAuth: false,
   },
 ];

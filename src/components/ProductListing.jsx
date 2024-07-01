@@ -3,22 +3,34 @@ import { IoEyeOutline } from "react-icons/io5";
 import AddToCartbtn from "./AddToCartbtn";
 import fiveStars from "../assets/images/Five star.png";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../slice/CartSlice";
 
 function ProductListing({
   products,
   imageMap,
   display = "block",
   flex = "flex-nowrap",
-  width= "w-[15%]"
 }) {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+
+    // console.log("product added to cart:", product);
+  };
+
   return (
     <div className="  my-8 justify-center w-full">
       <div
         className={`flex   items-stretch  overflow-hidden desktop:w-full justify-center gap-2 desktop:justify-between  desktop:gap-6 ${flex} `}
       >
         {products.map((flashProduct, index) => (
-          <div key={index} className={`product w-[48%] desktop:${width} cursor-pointer `}>
-            <div >
+          <div
+            key={flashProduct.id || index}
+            className={`product w-[48%] desktop:w-[15%] cursor-pointer `}
+          >
+            <div>
               <div className="bg-productBg  relative  h-[30vh]  flex items-center justify-center  rounded-md overflow-hidden">
                 <img
                   src={imageMap[flashProduct.imageUrl]}
@@ -34,7 +46,10 @@ function ProductListing({
                   <CiHeart className="bg-primary p-[0.5px] rounded-full" />
                   <IoEyeOutline className="bg-primary p-[0.5px] rounded-full" />
                 </div>
-                <AddToCartbtn />
+                <AddToCartbtn
+                  product={flashProduct}
+                  onAddToCart={handleAddToCart}
+                />
               </div>
               <div className="py-4 px-2 font-medium flex flex-col gap-1">
                 <span className=" text-primaryBlk text-sm">
@@ -64,9 +79,8 @@ function ProductListing({
 ProductListing.propTypes = {
   products: PropTypes.array.isRequired,
   imageMap: PropTypes.object.isRequired,
-  display: PropTypes.string.isRequired,
-  flex: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired,
+  display: PropTypes.string,
+  flex: PropTypes.string,
 };
 
 export default ProductListing;

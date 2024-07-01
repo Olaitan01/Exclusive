@@ -10,7 +10,7 @@ import Services from "../components/Services";
 import Mobilemenu from "../components/Mobilemenu";
 const HomePage = () => {
   return (
-    <div className="relative">
+    <div >
       <Hero />
       <SaleCountdown />
       <FlashSalesProducts />

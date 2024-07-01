@@ -9,7 +9,7 @@ function SectionHeader({
   isFlashSales = false,
   isFlashSalesBtn = false,
   title = "Today's",
-  marginTop ="mt-8",
+  marginTop = "mt-8",
   display = "block",
 }) {
   // is the product flash sales or not function
@@ -63,7 +63,9 @@ function SectionHeader({
       </span>
       <div className={`${marginTop} flex justify-between  `}>
         <div className="text-3xl font-bold flex flex-col desktop:flex-row justify-between desktop:items-end gap-[.5em] desktop:gap-[2em]">
-          <span className="block text-[.8em] desktop:text-[1em] ">{headerTitle}</span>
+          <span className="block text-[.8em] desktop:text-[1em] ">
+            {headerTitle}
+          </span>
 
           {!isFlashSales && (
             <div className="flex flex-col items-center">
