@@ -7,9 +7,9 @@ import { useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Search from "./Search";
 import logo from "../assets/images/exclusive-logo.png";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
-function Header({itemNo}) {
+function Header({ itemNo }) {
   // menu toggle icon
   const [icon, setIcon] = useState(false);
 
@@ -86,8 +86,12 @@ function Header({itemNo}) {
 
             {/* cart button */}
             <button className="">
-              <BsCart3 color="#000000" />
-              <p className="absolute top-6 text-center font-bold text-sm p-0.5  text-primary bg-buttonColor rounded-full ml-3">{itemNo}</p>
+              <NavLink to={"/cart"}>
+                <BsCart3 color="#000000" />
+                <p className="absolute top-6 text-center font-bold text-sm p-0.5  text-primary bg-buttonColor rounded-full ml-3">
+                  {itemNo}
+                </p>
+              </NavLink>
             </button>
           </div>
         </div>
@@ -105,8 +109,7 @@ function Header({itemNo}) {
   );
 }
 
-
-Header.propTypes ={
-  itemNo : PropTypes.number
-}
+Header.propTypes = {
+  itemNo: PropTypes.number,
+};
 export default Header;

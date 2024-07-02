@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import AddToCartbtn from "./AddToCartbtn";
@@ -13,10 +14,10 @@ function ProductListing({
   flex = "flex-nowrap",
 }) {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
-
+    navigate("/cart");
     // console.log("product added to cart:", product);
   };
 

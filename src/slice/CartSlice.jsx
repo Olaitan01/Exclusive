@@ -3,7 +3,10 @@ import { toast } from "react-toastify";
 
 //initial state of cart
 const initialState = {
-  cartItems: [],
+  //localstorage for the cartItems: when browser is refreshed the cart doesn't return to zero
+  cartItems: localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems"))
+    : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };
@@ -21,9 +24,12 @@ const cartSlice = createSlice({
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
         //toast/toastify is a cute pop up info
-        toast.info("increased product quantity", {
-          position: "bottom-left",
-        });
+        toast.info(
+          `increased ${state.cartItems[itemIndex].name} product quantity`,
+          {
+            position: "bottom-left",
+          }
+        );
 
         //if index/item hadn't been added or is less that zero, add the item to the cart
       } else {
@@ -34,6 +40,8 @@ const cartSlice = createSlice({
           position: "bottom-left",
         });
       }
+
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
   },
 });
