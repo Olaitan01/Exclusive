@@ -226,7 +226,7 @@
         "id": 15,
         "name": "The north coat",
         "price": 260,
-        "discount": "$360",
+        "discount": "360",
         "quantity": 65,
         "imageUrl": "Rain Coat"
       },

@@ -1,5 +1,11 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+
+import ViewAllBtn from "../components/ViewAllBtn";
+
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+
 import dogsFood from "../assets/images/Frame 604 (1).png";
 import camera from "../assets/images/Frame 604.png";
 import laptop from "../assets/images/ideapad-gaming-3i-01-500x500 1.png";
@@ -42,23 +48,115 @@ function Cart() {
 
   const cart = useSelector((state) => state.cart);
   return (
-    <div>
-      {cart.cartItems.length === 0 ? (
-        <div className="flex justify-center flex-col items-center my-[10em] ">
-            <p className="text-center text-red-400 text-6xl font-extrabold overflow-hidden">Your cart is empty</p>
-            <NavLink to={"/"} >return home</NavLink>
-        </div>
-      ) : (
+    <div className="w-[90vw] m-auto">
+      <div className="flex gap-2 items-center my-8 text-xs">
+        <span className="cursor-pointer">
+          <NavLink to={"/"}>Home</NavLink>
+        </span>
+        <span>/</span>
+        <span className="cursor-pointer">
+          <NavLink to={"/cart"}>Cart</NavLink>
+        </span>
+      </div>
+
+      <div className="my-8">
         <div>
-          {cart.cartItems?.map((cartItem) => (
-            <div key={cartItem}>
-              <div>
-                <img src={imageMap[cartItem.imageUrl]} alt={cartItem.name} />
+          {cart.cartItems.length === 0 ? (
+            <div className="flex justify-center flex-col items-center my-[10em] ">
+              <p className="text-center text-red-400 text-6xl font-extrabold overflow-hidden">
+                Your cart is empty
+              </p>
+              <NavLink to={"/"}>return home</NavLink>
+            </div>
+          ) : (
+            <div>
+              <div className="flex justify-between items-center border-2 bg-primary  rounded-md shadow-xl shadow-productBg p-4 text-sm font-medium text-center">
+                <p>Product</p>
+                <p>Price</p>
+                <p>Quantity</p>
+                <p>Subtotal</p>
+              </div>
+
+              {cart.cartItems?.map((cartItem,index) => (
+                <div key={index}>
+                  <div className="flex  justify-between items-center my-4 border-2 bg-primary  rounded-md shadow-xl shadow-productBg p-4 text-sm  ">
+                    <div className="flex flex-col desktop:flex-row gap-2 desktop:items-center  w-full ">
+                      <img
+                        src={imageMap[cartItem.imageUrl]}
+                        alt={cartItem.name}
+                        className="max-w-full w-10 object-fill"
+                      />
+                      <span className="text-xs desktop:text-sm text-wrap ">
+                        {cartItem.name}
+                      </span>
+                    </div>
+                    <div className=" w-full text-left">
+                      <span className="text-sm pl-2">${cartItem.price}</span>
+                    </div>
+                    <div className="flex gap-2 items-center border-[0.5px] border-solid rounded-sm p-2 justify-center  w-40">
+                      <span>{cartItem.cartQuantity}</span>
+                      <div className="flex flex-col gap-1 ">
+                        <button>
+                          <IoIosArrowUp size={10} />
+                        </button>
+                        <button>
+                          <IoIosArrowDown size={10} />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="justify-self-end w-full text-right">
+                      <span>${cartItem.price * cartItem.cartQuantity}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <div className="flex justify-between items-center my-8">
+                <ViewAllBtn
+                  buttonText="Return To Shop"
+                  bg="bg-transparent"
+                  text="text-primaryBlk"
+                  borderColor="border-primaryBlk"
+                />
+                <ViewAllBtn
+                  buttonText="Update Cart"
+                  bg="bg-transparent"
+                  text="text-primaryBlk"
+                  borderColor="border-primaryBlk"
+                />
+              </div>
+              <div className="flex flex-col desktop:flex-row gap-8 justify-between items-start">
+                <div className="flex gap-2 items-center">
+                  <input
+                    type="text"
+                    placeholder="Coupon code"
+                    className="border-2 border-primaryBlk bg-inherit rounded-sm py-2 text-sm placeholder:text-gray-400 placeholder:text-[1rem] font-light w-60 "
+                  />
+                  <ViewAllBtn buttonText="Apply Coupon" />
+                </div>
+                <div className="border-2 border-primaryBlk rounded-md w-full  desktop:w-80 p-4">
+                  <h3 className="font-medium py-2">Cart Total</h3>
+                  <div className="flex justify-between my-2">
+                    <span>Subtotal:</span>
+                    <span>$1750</span>
+                  </div>
+                  <hr />
+                  <div className="flex justify-between my-2">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                  </div>
+                  <hr />
+                  <div className="flex justify-between my-2">
+                    <span>Total:</span>
+                    <span>$1750</span>
+                  </div>
+
+                  <ViewAllBtn buttonText="Proceed to checkout" />
+                </div>
               </div>
             </div>
-          ))}
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

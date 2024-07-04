@@ -1,7 +1,13 @@
 import data from "/src/json/db.json";
+import { addToCart } from "../slice/CartSlice";
+
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useRef } from "react";
+
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import dogsFood from "../assets/images/Frame 604 (1).png";
 import camera from "../assets/images/Frame 604.png";
 import laptop from "../assets/images/ideapad-gaming-3i-01-500x500 1.png";
@@ -21,25 +27,46 @@ import GamingMonitor from "../assets/images/g27cq4-500x500 1.png";
 import ComfortChair from "../assets/images/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png";
 
 function Search() {
+  // State to store the user's search query
   const [searchItem, setSearchItem] = useState("");
+
+  // State to track if the search input is focused
   const [isFocused, setIsFocused] = useState(false);
+
+  // Ref to access the search results list element (optional)
   const Searchstyle = useRef();
-  // Combine all products from different categories
+
+  // Function to navigate programmatically (provided by React Router DOM)
+  const navigate = useNavigate();
+
+  // Function to dispatch actions to the Redux store (provided by Redux)
+  const dispatch = useDispatch();
+
+  // Combine all products from different categories (implementation not shown here)
   const allProducts = [...data.products.Products];
 
-  // Filter products based on search input
+  // Filter products based on the search term
   const filteredProducts = allProducts.filter((val) => {
     if (searchItem === "") {
-      ("");
+      // No search term, so don't filter 
+      return "";
     } else if (val.name.toLowerCase().includes(searchItem.toLowerCase())) {
+      // Product name (in lowercase) includes the search term (in lowercase)
       return val;
     }
     return null;
   });
 
-  //Hanlde input focus and change bg of the list
+  // Handle focus on the search input
   const handleFocus = () => {
     setIsFocused(true);
+  };
+
+  // Handle product selection from search results
+  const handleProductSearch = (product) => {
+    setIsFocused(false);
+    dispatch(addToCart(product)); // Add product to cart using Redux action
+    navigate("/cart"); // Navigate to the cart page
   };
 
   const imageMap = {
@@ -88,7 +115,13 @@ function Search() {
         >
           {filteredProducts.map((val, index) => (
             <div key={index}>
-              <ul className="flex justify-between items-center text-sm cursor-pointer hover:bg-red-50">
+              <ul
+                className="flex justify-between items-center text-sm cursor-pointer hover:bg-red-50"
+                onClick={() => {
+                  const product = val;
+                  handleProductSearch(product);
+                }}
+              >
                 <li>
                   <img src={imageMap[val.imageUrl]} alt="" className="w-10" />
                 </li>
