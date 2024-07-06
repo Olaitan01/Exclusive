@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 import ViewAllBtn from "../components/ViewAllBtn";
@@ -23,6 +23,8 @@ import Gamepad from "../assets/images/Frame 611.png";
 import keyboard from "../assets/images/ak-900-01-500x500 1.png";
 import GamingMonitor from "../assets/images/g27cq4-500x500 1.png";
 import ComfortChair from "../assets/images/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png";
+import { addToCart, decreamentCartItem, getTotal, removeFromCart } from "../slice/CartSlice";
+import { useEffect } from "react";
 
 function Cart() {
   const imageMap = {
@@ -47,6 +49,25 @@ function Cart() {
   };
 
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+useEffect(()=>{
+    dispatch(getTotal())
+},[cart,dispatch])
+
+  const removeItem = (cartItem) => {
+    dispatch(removeFromCart(cartItem));
+  };
+
+  const incrementItemQuantity = (cartItem) => {
+    dispatch(addToCart(cartItem));
+  };
+
+  const decrementItemQuantity = (cartItem) => {
+    dispatch(decreamentCartItem(cartItem));
+  };
+
+  
   return (
     <div className="w-[90vw] m-auto">
       <div className="flex gap-2 items-center my-8 text-xs">
@@ -77,18 +98,26 @@ function Cart() {
                 <p>Subtotal</p>
               </div>
 
-              {cart.cartItems?.map((cartItem,index) => (
+              {cart.cartItems?.map((cartItem, index) => (
                 <div key={index}>
                   <div className="flex  justify-between items-center my-4 border-2 bg-primary  rounded-md shadow-xl shadow-productBg p-4 text-sm  ">
-                    <div className="flex flex-col desktop:flex-row gap-2 desktop:items-center  w-full ">
+                    <div className="flex flex-col desktop:flex-row gap-2 desktop:items-center  w-full relative">
                       <img
                         src={imageMap[cartItem.imageUrl]}
                         alt={cartItem.name}
                         className="max-w-full w-10 object-fill"
                       />
-                      <span className="text-xs desktop:text-sm text-wrap ">
-                        {cartItem.name}
-                      </span>
+                      <div className="flex flex-col gap-2">
+                        <span className="text-xs desktop:text-sm text-wrap ">
+                          {cartItem.name}
+                        </span>
+                        <button
+                          className="border-2 border-solid border-slate-400 rounded-sm w-20 text-xs font-medium"
+                          onClick={() => removeItem(cartItem)}
+                        >
+                          Remove
+                        </button>
+                      </div>
                     </div>
                     <div className=" w-full text-left">
                       <span className="text-sm pl-2">${cartItem.price}</span>
@@ -96,10 +125,10 @@ function Cart() {
                     <div className="flex gap-2 items-center border-[0.5px] border-solid rounded-sm p-2 justify-center  w-40">
                       <span>{cartItem.cartQuantity}</span>
                       <div className="flex flex-col gap-1 ">
-                        <button>
+                        <button onClick={() => incrementItemQuantity(cartItem)}>
                           <IoIosArrowUp size={10} />
                         </button>
-                        <button>
+                        <button onClick={() => decrementItemQuantity(cartItem)}>
                           <IoIosArrowDown size={10} />
                         </button>
                       </div>
@@ -137,7 +166,7 @@ function Cart() {
                   <h3 className="font-medium py-2">Cart Total</h3>
                   <div className="flex justify-between my-2">
                     <span>Subtotal:</span>
-                    <span>$1750</span>
+                    <span>${cart.cartTotalAmount}</span>
                   </div>
                   <hr />
                   <div className="flex justify-between my-2">
@@ -147,7 +176,7 @@ function Cart() {
                   <hr />
                   <div className="flex justify-between my-2">
                     <span>Total:</span>
-                    <span>$1750</span>
+                    <span>${cart.cartTotalAmount}</span>
                   </div>
 
                   <ViewAllBtn buttonText="Proceed to checkout" />

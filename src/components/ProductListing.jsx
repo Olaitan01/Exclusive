@@ -18,6 +18,7 @@ function ProductListing({
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
     navigate("/cart");
+
     // console.log("product added to cart:", product);
   };
 

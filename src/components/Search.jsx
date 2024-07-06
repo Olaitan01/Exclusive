@@ -48,7 +48,7 @@ function Search() {
   // Filter products based on the search term
   const filteredProducts = allProducts.filter((val) => {
     if (searchItem === "") {
-      // No search term, so don't filter 
+      // No search term, so don't filter
       return "";
     } else if (val.name.toLowerCase().includes(searchItem.toLowerCase())) {
       // Product name (in lowercase) includes the search term (in lowercase)

@@ -7,9 +7,9 @@ import { useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Search from "./Search";
 import logo from "../assets/images/exclusive-logo.png";
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
-function Header({ itemNo }) {
+function Header() {
   // menu toggle icon
   const [icon, setIcon] = useState(false);
 
@@ -21,6 +21,7 @@ function Header({ itemNo }) {
     setIcon(!icon);
   };
 
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
   return (
     <div className=" border-b-2 border-solid border-gray-300  ">
       <div className="overflow-hidden flex items-center m-auto  w-[90vw] justify-between mt-6 mb-4 ">
@@ -89,7 +90,7 @@ function Header({ itemNo }) {
               <NavLink to={"/cart"}>
                 <BsCart3 color="#000000" />
                 <p className="absolute top-6 text-center font-bold text-sm p-0.5  text-primary bg-buttonColor rounded-full ml-3">
-                  {itemNo}
+                  {cartTotalQuantity}
                 </p>
               </NavLink>
             </button>
@@ -109,7 +110,4 @@ function Header({ itemNo }) {
   );
 }
 
-Header.propTypes = {
-  itemNo: PropTypes.number,
-};
 export default Header;
