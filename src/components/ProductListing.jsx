@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import AddToCartbtn from "./AddToCartbtn";
@@ -6,6 +5,7 @@ import fiveStars from "../assets/images/Five star.png";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../slice/CartSlice";
+import { NavLink } from "react-router-dom";
 
 function ProductListing({
   products,
@@ -14,18 +14,26 @@ function ProductListing({
   flex = "flex-nowrap",
 }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
-    navigate("/cart");
 
     // console.log("product added to cart:", product);
   };
 
+  // const handleProductDetails = (product) => {
+  //   dispatch(productDetails(product));
+  //   navigate("/productDetailsPage");
+
+  //   // console.log("product added to cart:", product);
+  // };
+
   return (
     <div className="  my-8 justify-center w-full">
       <div
-        className={`flex   items-stretch  overflow-hidden desktop:w-full justify-center gap-2 desktop:justify-between  desktop:gap-6 ${flex} `}
+        className={`flex   items-stretch  overflow-hidden desktop:w-full justify-center gap-2 desktop:justify-between  desktop:gap-6 ${flex}`}
       >
         {products.map((flashProduct, index) => (
           <div
@@ -34,11 +42,14 @@ function ProductListing({
           >
             <div>
               <div className="bg-productBg  relative  h-[30vh]  flex items-center justify-center  rounded-md overflow-hidden">
+                <NavLink to={`/productDetailsPage/${flashProduct.name}`}>
                 <img
                   src={imageMap[flashProduct.imageUrl]}
                   alt={flashProduct.name}
                   className="max-w-full  object-fill p-2"
+                  // onClick={() => handleProductDetails(flashProduct)}
                 />
+                </NavLink>
                 <span
                   className={`${display} absolute top-2 left-4 rounded-[.5em] bg-buttonColor px-3 py-1 text-primary text-[0.7rem] font-light`}
                 >

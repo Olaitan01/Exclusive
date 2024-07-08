@@ -9,6 +9,7 @@ const initialState = {
     : [],
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
+  productDetails: [],
 };
 
 const cartSlice = createSlice({
@@ -98,10 +99,26 @@ const cartSlice = createSlice({
       state.cartTotalQuantity = quantity;
       state.cartTotalAmount = total;
     },
+    productDetails(state, action) {
+      const itemIndex = state.productDetails.findIndex(
+        (item) => item.name === action.payload.name
+      );
+
+      if (itemIndex > 0) {
+        state.productDetails.pop(itemIndex);
+      } else if (itemIndex < 0) {
+        state.productDetails.push(action.payload);
+      }
+    },
   },
 });
 
-export const { addToCart, removeFromCart, decreamentCartItem, getTotal } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  decreamentCartItem,
+  getTotal,
+  productDetails,
+} = cartSlice.actions;
 export const { cartTotalQuantity } = initialState;
 export default cartSlice.reducer;
