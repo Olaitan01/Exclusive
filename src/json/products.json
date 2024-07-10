@@ -14,13 +14,7 @@
       "quantity": 95,
       "imageUrl": "CANON Camera"
     },
-    {
-      "id": 3,
-      "name": "ASUS FHD Gaming Laptop",
-      "price": 700,
-      "quantity": 325,
-      "imageUrl": "Asus Laptop"
-    },
+
     {
       "id": 4,
       "name": "Curology Product Set",

@@ -4,14 +4,24 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { cartTotalQuantity } from "./slice/CartSlice.jsx";
 import { ToastContainer } from "react-toastify";
+import { FetchData } from "./utilis/FetchData.jsx";
 
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from "react";
 function App() {
-   
+  const [isdata, setIsData] = useState([]);
+
+  useEffect(() => {
+    const setData = async () => {
+      const data = await FetchData("http://localhost:8000/products");
+      setIsData(data.Products);
+    };
+    setData();
+  },[]);
 
   return (
     <div>
-      <ToastContainer/>
+      <ToastContainer />
       <Header />
       <Routes>
         {RoutesPage.map((route) => (
@@ -19,7 +29,7 @@ function App() {
             key={route.path}
             exact
             path={route.path}
-            element={<route.component itemNo={cartTotalQuantity}/> }
+            element={<route.component itemNo={cartTotalQuantity} _data={isdata} />}
           />
         ))}
       </Routes>
