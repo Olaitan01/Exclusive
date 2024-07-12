@@ -23,7 +23,12 @@ import Gamepad from "../assets/images/Frame 611.png";
 import keyboard from "../assets/images/ak-900-01-500x500 1.png";
 import GamingMonitor from "../assets/images/g27cq4-500x500 1.png";
 import ComfortChair from "../assets/images/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png";
-import { addToCart, decreamentCartItem, getTotal, removeFromCart } from "../slice/CartSlice";
+import {
+  addToCart,
+  decreamentCartItem,
+  getTotal,
+  removeFromCart,
+} from "../slice/CartSlice";
 import { useEffect } from "react";
 
 function Cart() {
@@ -51,9 +56,9 @@ function Cart() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-useEffect(()=>{
-    dispatch(getTotal())
-},[cart,dispatch])
+  useEffect(() => {
+    dispatch(getTotal());
+  }, [cart, dispatch]);
 
   const removeItem = (cartItem) => {
     dispatch(removeFromCart(cartItem));
@@ -67,14 +72,13 @@ useEffect(()=>{
     dispatch(decreamentCartItem(cartItem));
   };
 
-  
   return (
     <div className="w-[90vw] m-auto">
       <div className="flex gap-2 items-center my-8 text-xs">
-        <span className="cursor-pointer">
+        <span className="cursor-pointer text-gray-300">
           <NavLink to={"/"}>Home</NavLink>
         </span>
-        <span>/</span>
+        <span className="text-gray-300">/</span>
         <span className="cursor-pointer">
           <NavLink to={"/cart"}>Cart</NavLink>
         </span>
@@ -83,11 +87,13 @@ useEffect(()=>{
       <div className="my-8">
         <div>
           {cart.cartItems.length === 0 ? (
-            <div className="flex justify-center flex-col items-center my-[10em] ">
-              <p className="text-center text-red-400 text-6xl font-extrabold overflow-hidden">
+            <div className="flex justify-center flex-col items-center my-[10em] gap-2">
+              <p className="text-center text-primaryBlk text-6xl font-extrabold overflow-hidden">
                 Your cart is empty
               </p>
-              <NavLink to={"/"}>return home</NavLink>
+              <NavLink to={"/"} style={{ textDecoration: "underline" }}>
+                return home
+              </NavLink>
             </div>
           ) : (
             <div>

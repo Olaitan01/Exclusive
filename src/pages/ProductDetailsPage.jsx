@@ -1,11 +1,14 @@
 // import { useSelector } from "react-redux";
 
 import { useParams } from "react-router-dom";
-
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
+
+import { CiHeart } from "react-icons/ci";
+import { TbTruckDelivery } from "react-icons/tb";
+import { SlRefresh } from "react-icons/sl";
 
 import dogsFood from "../assets/images/Frame 604 (1).png";
 import camera from "../assets/images/Frame 604.png";
@@ -24,6 +27,7 @@ import Gamepad from "../assets/images/Frame 611.png";
 import keyboard from "../assets/images/ak-900-01-500x500 1.png";
 import GamingMonitor from "../assets/images/g27cq4-500x500 1.png";
 import ComfortChair from "../assets/images/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png";
+import fiveStars from "../assets/images/Five star.png";
 
 import { addToCart, decreamentCartItem } from "../slice/CartSlice";
 
@@ -151,9 +155,15 @@ function ProductDetailsPage({ _data }) {
             </div>
             <div className="flex flex-col gap-4">
               <h1 className="font-bold text-3xl">{item.name}</h1>
-              <div>stars/reviews/in stock</div>
+              <div className="text-sm font-normal text-gray-400 flex items-center gap-4">
+                <img src={fiveStars} alt="five stars review" className="w-20 max-w-full" />
+                <span  >(150 reviews)</span>
+                <span>|</span>
+                <span className="text-green-300">in stock</span>
+               
+              </div>
               <span className="text-xl font-medium">${item.price}.00</span>
-              <hr />
+              <hr className="border-gray-400 border-[0.8px]" />
               <div>
                 <span className="flex items-center gap-4  font-normal text-xl">
                   Colours:{" "}
@@ -202,11 +212,7 @@ function ProductDetailsPage({ _data }) {
                     </button>
                     <span className="w-20">
                       {cart.cartItems?.map((cartItem, index) => (
-                        <div key={index}>
-                          {cartItem.cartQuantity === 0
-                            ? 1
-                            : cartItem.cartQuantity}
-                        </div>
+                        <span key={index}>{cartItem.cartQuantity }</span>
                       ))}
                     </span>
                     <button
@@ -224,22 +230,34 @@ function ProductDetailsPage({ _data }) {
                       Buy Now
                     </button>{" "}
                   </div>
-                  <div>heart Emoji</div>
+                  <div className="flex justify-center items-center">
+                    <button>
+                      <CiHeart
+                        className=" p-[0.5px]  border-2 border-solid border-gray-400 rounded-sm "
+                        size={30}
+                      />
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <div>
-                    <div></div>
+                <div className="flex flex-col gap-4 border-2 border-solid border-gray-400 rounded-md my-[1.5em] ">
+                  <div className="flex items-center gap-6 p-2">
                     <div>
+                      <TbTruckDelivery color="#000000" size={30} />
+                    </div>
+                    <div className="flex flex-col gap-4">
                       <span>Free Delivery</span>
                       <span className="underline">
                         Enter your postal code for Delivery Availability
                       </span>
                     </div>
                   </div>
-                  <hr />
-                  <div>
-                    <div></div>
+                  <hr className="border-gray-400 border-[0.8px]" />
+
+                  <div className="flex items-center gap-6 p-2">
                     <div>
+                      <SlRefresh color="#000000" size={30} />
+                    </div>
+                    <div className="flex flex-col gap-4">
                       <span>Return Delivery</span>
                       <span>
                         Free 30 Days Delivery Returns.{" "}

@@ -3,16 +3,18 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100&family=IBM+Plex+Mono:wght@100;400;600;700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100&family=IBM+Plex+Mono:wght@100;400;600;700&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-*,*::after,*::before{
+*,
+*::after,
+*::before {
   overflow-x: hidden;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
 }
 
-body{
+body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   position: relative;
@@ -20,31 +22,35 @@ body{
   height: 100vh;
 }
 
+/* number input field styling */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  margin: 0;
+}
 /* menu toggle style */
 
-.menu{
+.menu {
   inset: 0 0 0 10em;
-  transition: inset .5s ease-in-out;
-  
+  transition: inset 0.5s ease-in-out;
 }
 
 /* section header styling */
-.title::before{
+.title::before {
   content: "";
-  border: .5em solid #E11D48;
-  color: #E11D48;
+  border: 0.5em solid #e11d48;
+  color: #e11d48;
   position: absolute;
   left: 0;
   height: 4vh;
-  border-radius: .2em;
-  
+  border-radius: 0.2em;
 }
 
-.product:hover .addToCart{
+.product:hover .addToCart {
   bottom: 0;
-  transition: bottom .2s ease-in-out;
+  transition: bottom 0.2s ease-in-out;
 }
 
-.togglebg{
+.togglebg {
   background-color: aqua;
 }

@@ -3,6 +3,7 @@ import { BsHeart } from "react-icons/bs";
 import { BsCart3 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
+import { VscAccount } from "react-icons/vsc";
 import { useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Search from "./Search";
@@ -52,6 +53,7 @@ function Header() {
                 <NavLink
                   className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
                   onClick={burgermenu}
+                  to={"/ContactPage"}
                 >
                   Contact
                 </NavLink>
@@ -84,7 +86,6 @@ function Header() {
             <button className="m-4">
               <BsHeart color="#000000" />
             </button>
-
             {/* cart button */}
             <button className="">
               <NavLink to={"/cart"}>
@@ -93,6 +94,14 @@ function Header() {
                   {cartTotalQuantity}
                 </p>
               </NavLink>
+            </button>
+            {/* profile button */}
+            <button>
+              <VscAccount
+                color="#000000"
+                size={20}
+                className="hover:bg-buttonColor rounded-full"
+              />
             </button>
           </div>
         </div>
