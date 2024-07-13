@@ -2,6 +2,7 @@ import HomePage from "./HomePage";
 import Cart from "./Cart";
 import ProductDetailsPage from "./ProductDetailsPage";
 import ContactPage from "./ContactPage";
+import About from "./About";
 
 export const RoutesPage = [
   {
@@ -21,4 +22,9 @@ export const RoutesPage = [
     path: "/ContactPage",
     component: ContactPage,
   },
+  {
+    path: "/about",
+    component: About,
+  },
+
 ];

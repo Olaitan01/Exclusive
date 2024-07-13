@@ -62,6 +62,7 @@ function Header() {
                 <NavLink
                   className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
                   onClick={burgermenu}
+                  to={"/about"}
                 >
                   About
                 </NavLink>

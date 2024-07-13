@@ -54,3 +54,10 @@ input[type="number"]::-webkit-inner-spin-button {
 .togglebg {
   background-color: aqua;
 }
+
+.serviceCard:hover .serviceIcon{
+  background-color: #ffffff;
+}
+.serviceCard:hover .icon{
+  fill: #000000;
+}

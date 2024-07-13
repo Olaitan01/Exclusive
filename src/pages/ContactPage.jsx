@@ -16,7 +16,7 @@ function ContactPage() {
       </div>
 
       <div className="flex gap-[8em] ">
-        <div className="flex flex-col gap-10 bg-productBg p-8 shadow-lg shadow-slate-300">
+        <div className="flex flex-col gap-10  p-8 shadow-lg shadow-slate-300">
           <div className="flex flex-col gap-4">
             <div className="flex  gap-2 items-center">
               <IoCallOutline
@@ -49,7 +49,7 @@ function ContactPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8  drop-shadow-sm shadow-slate-300">
           <div className="flex  gap-6 justify-between items-center w-full">
             <input
               type="text"
