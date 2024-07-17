@@ -19,7 +19,7 @@ function ServicesChildren({services, text="text-base",border="border-0",width="w
 }
 
 ServicesChildren.propTypes = {
-    services: PropTypes.string,
+    services: PropTypes.array,
     text: PropTypes.string,
     border:PropTypes.string,
     width: PropTypes.string,

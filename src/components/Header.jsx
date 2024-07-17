@@ -11,6 +11,12 @@ import logo from "../assets/images/exclusive-logo.png";
 import { useSelector } from "react-redux";
 
 function Header() {
+  const activeLink = ({ isActive }) => {
+    return {
+      borderBottom: isActive ? "1px solid black" : "",
+    };
+  };
+
   // menu toggle icon
   const [icon, setIcon] = useState(false);
 
@@ -45,6 +51,7 @@ function Header() {
                   to="/"
                   className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
                   onClick={burgermenu}
+                  style={activeLink}
                 >
                   Home
                 </NavLink>
@@ -54,6 +61,7 @@ function Header() {
                   className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
                   onClick={burgermenu}
                   to={"/ContactPage"}
+                  style={activeLink}
                 >
                   Contact
                 </NavLink>
@@ -63,6 +71,7 @@ function Header() {
                   className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
                   onClick={burgermenu}
                   to={"/about"}
+                  style={activeLink}
                 >
                   About
                 </NavLink>
@@ -71,6 +80,8 @@ function Header() {
                 <NavLink
                   className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
                   onClick={burgermenu}
+                  to={"/auth"}
+                  style={activeLink}
                 >
                   Sign Up
                 </NavLink>

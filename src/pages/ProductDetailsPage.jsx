@@ -276,5 +276,5 @@ function ProductDetailsPage({ _data }) {
 
 export default ProductDetailsPage;
 ProductDetailsPage.propTypes = {
-  _data: PropTypes.object,
+  _data: PropTypes.array,
 };

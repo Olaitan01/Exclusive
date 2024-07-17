@@ -3,6 +3,7 @@ import Cart from "./Cart";
 import ProductDetailsPage from "./ProductDetailsPage";
 import ContactPage from "./ContactPage";
 import About from "./About";
+import Auth from "./Auth";
 
 export const RoutesPage = [
   {
@@ -25,6 +26,10 @@ export const RoutesPage = [
   {
     path: "/about",
     component: About,
+  },
+  {
+    path: "/auth",
+    component: Auth,
   },
 
 ];
