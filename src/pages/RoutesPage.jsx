@@ -4,6 +4,7 @@ import ProductDetailsPage from "./ProductDetailsPage";
 import ContactPage from "./ContactPage";
 import About from "./About";
 import Auth from "./Auth";
+import Checkout from "./Checkout";
 
 export const RoutesPage = [
   {
@@ -31,5 +32,8 @@ export const RoutesPage = [
     path: "/auth",
     component: Auth,
   },
-
+  {
+    path: "/checkout",
+    component: Checkout,
+  },
 ];

@@ -1,12 +1,36 @@
 import { NavLink } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
+
+import { auth, googleAuthProvider } from "../config/firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
 function LoginSignup() {
   const [isUser, setIsUser] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const SignUp = () => {
     setIsUser(!isUser);
   };
+
+  const signIn = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleAuthProvider);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  console.log(auth)
 
   return (
     <div>
@@ -30,6 +54,7 @@ function LoginSignup() {
                   type="email"
                   placeholder="Name"
                   required
+                  onChange={(e) => setEmail(e.target.value)}
                   className="border-b-[0.8px] border-gray-400 placeholder:font-light placeholder:text-sm focus:outline-none"
                 />
               </div>
@@ -42,6 +67,7 @@ function LoginSignup() {
                 type="email"
                 placeholder="Email or Phone Number"
                 required
+                onChange={(e) => setEmail(e.target.value)}
                 className="border-b-[0.8px] border-gray-400 placeholder:font-light placeholder:text-sm focus:outline-none"
               />
             </div>
@@ -56,6 +82,7 @@ function LoginSignup() {
                 type="password"
                 placeholder="Password"
                 required
+                onChange={(e) => setPassword(e.target.value)}
                 className="border-b-[0.8px] border-gray-400 placeholder:font-light placeholder:text-sm  focus:outline-none "
               />
             </div>
@@ -71,6 +98,7 @@ function LoginSignup() {
                 <button
                   type="submit"
                   className="w-full bg-buttonColor text-primary text-sm  py-3 rounded-sm"
+                  onClick={() => signIn()}
                 >
                   Login
                 </button>
@@ -82,7 +110,10 @@ function LoginSignup() {
                   <FcGoogle size={30} /> Sign up with Google
                 </button>
               ) : (
-                <button className="w-full border-2 border-gray-400 text-sm  py-1 rounded-sm flex items-center justify-center gap-2">
+                <button
+                  className="w-full border-2 border-gray-400 text-sm  py-1 rounded-sm flex items-center justify-center gap-2"
+                  onClick={() => signInWithGoogle()}
+                >
                   <FcGoogle size={30} /> Login with Google
                 </button>
               )}

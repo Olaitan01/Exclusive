@@ -146,12 +146,14 @@ function Cart() {
                 </div>
               ))}
               <div className="flex justify-between items-center my-8">
-                <ViewAllBtn
-                  buttonText="Return To Shop"
-                  bg="bg-transparent"
-                  text="text-primaryBlk"
-                  borderColor="border-primaryBlk"
-                />
+                <NavLink to={"/"}>
+                  <ViewAllBtn
+                    buttonText="Return To Shop"
+                    bg="bg-transparent"
+                    text="text-primaryBlk"
+                    borderColor="border-primaryBlk"
+                  />
+                </NavLink>
                 <ViewAllBtn
                   buttonText="Update Cart"
                   bg="bg-transparent"
@@ -184,8 +186,10 @@ function Cart() {
                     <span>Total:</span>
                     <span>${cart.cartTotalAmount}</span>
                   </div>
-
-                  <ViewAllBtn buttonText="Proceed to checkout" />
+                  <NavLink to={"/checkout"}>
+                    {" "}
+                    <ViewAllBtn buttonText="Proceed to checkout" />
+                  </NavLink>{" "}
                 </div>
               </div>
             </div>

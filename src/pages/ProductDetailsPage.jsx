@@ -156,11 +156,14 @@ function ProductDetailsPage({ _data }) {
             <div className="flex flex-col gap-4">
               <h1 className="font-bold text-3xl">{item.name}</h1>
               <div className="text-sm font-normal text-gray-400 flex items-center gap-4">
-                <img src={fiveStars} alt="five stars review" className="w-20 max-w-full" />
-                <span  >(150 reviews)</span>
+                <img
+                  src={fiveStars}
+                  alt="five stars review"
+                  className="w-20 max-w-full"
+                />
+                <span>(150 reviews)</span>
                 <span>|</span>
                 <span className="text-green-300">in stock</span>
-               
               </div>
               <span className="text-xl font-medium">${item.price}.00</span>
               <hr className="border-gray-400 border-[0.8px]" />
@@ -211,9 +214,13 @@ function ProductDetailsPage({ _data }) {
                       -
                     </button>
                     <span className="w-20">
-                      {cart.cartItems?.map((cartItem, index) => (
-                        <span key={index}>{cartItem.cartQuantity }</span>
-                      ))}
+                      {cart.cartItems?.map((cartItem, index) =>
+                        cartItem.cartQuantity < 1 ? (
+                          <span key={index}>1</span>
+                        ) : (
+                          <span key={index}>{cartItem.cartQuantity}</span>
+                        )
+                      )}
                     </span>
                     <button
                       className=" font-normal border-l-2 border-solid border-gray-400 px-2 w-8 cursor-pointer hover:bg-buttonColor flex justify-center items-center"
