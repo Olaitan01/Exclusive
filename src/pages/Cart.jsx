@@ -29,9 +29,14 @@ import {
   getTotal,
   removeFromCart,
 } from "../slice/CartSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Cart() {
+  const [isLogged, setIsLogged] = useState(false)
+
+  setIsLogged(!isLogged)
+    
+  
   const imageMap = {
     "Dog Food": dogsFood,
     "CANON Camera": camera,

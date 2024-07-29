@@ -1,13 +1,17 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { key } from "../api/ApiKey";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCPFMvD_847D11y-KQHvyJwEEdTBBzi8js",
+  apiKey: `${key}`,
   authDomain: "exclusive-99301.firebaseapp.com",
   projectId: "exclusive-99301",
   storageBucket: "exclusive-99301.appspot.com",

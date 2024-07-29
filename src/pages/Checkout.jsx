@@ -40,7 +40,7 @@ function Checkout() {
   };
 
   return (
-    <div className="w-[40vw] mx-auto my-[6em] ">
+    <form action="/" method="POST" className="w-[40vw] mx-auto my-[6em] ">
       <h1 className="font-semibold text-3xl my-4">Checkout details</h1>
       <div>
         <div>
@@ -50,6 +50,7 @@ function Checkout() {
             placeholder="Full name"
             onChange={(e) => setFullName(e.target.value)}
             className={style.input}
+            required
           />
         </div>
         <div>
@@ -59,6 +60,7 @@ function Checkout() {
             placeholder="Email Address"
             onChange={(e) => setEmail(e.target.value)}
             className={style.input}
+            required
           />
         </div>
         <div>
@@ -68,6 +70,7 @@ function Checkout() {
             placeholder="+234"
             onChange={(e) => setNumber(Number(e.target.value))}
             className={style.input}
+            required
           />
         </div>
         <div>
@@ -77,6 +80,7 @@ function Checkout() {
             placeholder="delivery address"
             onChange={(e) => setAddress(e.target.value)}
             className={style.input}
+            required
           />
         </div>
         <div className="my-2">
@@ -86,7 +90,7 @@ function Checkout() {
       <PaystackButton className={style.button} {...componentProps}>
         Make Payment
       </PaystackButton>
-    </div>
+    </form>
   );
 }
 
