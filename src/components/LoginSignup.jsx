@@ -2,22 +2,62 @@ import { NavLink } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 
-import { auth, googleAuthProvider } from "../config/firebase";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, googleAuthProvider, db } from "../config/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function LoginSignup() {
+  const navigate = useNavigate();
+
   const [isUser, setIsUser] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   const SignUp = () => {
     setIsUser(!isUser);
   };
 
-  const signIn = async () => {
+  const signUpUser = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      console.log(user);
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          name: name,
+        });
+      }
+      navigate("/");
+      console.log("registered successfull");
+      toast.success("registered successfully", {
+        position: "bottom-center",
+      });
     } catch (err) {
+      toast.error(err.message, {
+        position: "bottom-center",
+      });
+    }
+  };
+
+  const signIn = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/");
+      toast.success("signed in successfully", {
+        position: "bottom-center",
+      });
+    } catch (err) {
+      toast.error(err.message, {
+        position: "bottom-center",
+      });
       console.error(err);
     }
   };
@@ -25,12 +65,17 @@ function LoginSignup() {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleAuthProvider);
+      navigate("/");
+      console.log("registered successfull");
+      toast.success("registered successfully", {
+        position: "bottom-center",
+      });
     } catch (err) {
-      console.error(err);
+      toast.error(err.message, {
+        position: "bottom-center",
+      });
     }
   };
-
-  console.log(auth)
 
   return (
     <div>
@@ -50,11 +95,11 @@ function LoginSignup() {
             {isUser ? (
               <div className="grid gap-2">
                 <input
-                  id="email"
-                  type="email"
+                  id="name"
+                  type="text"
                   placeholder="Name"
                   required
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                   className="border-b-[0.8px] border-gray-400 placeholder:font-light placeholder:text-sm focus:outline-none"
                 />
               </div>
@@ -91,6 +136,7 @@ function LoginSignup() {
                 <button
                   type="submit"
                   className="w-full bg-buttonColor text-primary text-sm  py-3 rounded-sm"
+                  onClick={() => signUpUser()}
                 >
                   Sign up
                 </button>

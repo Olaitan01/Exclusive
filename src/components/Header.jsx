@@ -4,17 +4,73 @@ import { BsCart3 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Search from "./Search";
 import logo from "../assets/images/exclusive-logo.png";
 import { useSelector } from "react-redux";
+import { auth, db } from "../config/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const activeLink = ({ isActive }) => {
     return {
       borderBottom: isActive ? "1px solid black" : "",
     };
+  };
+
+  //user details
+  const [userDetails, setUserDetails] = useState(null);
+
+  //navigate
+  const navigate = useNavigate();
+  const profileRef = useRef();
+
+  const toggleProfileInfo = () => {
+    profileRef.current.classList.toggle("info");
+  };
+
+  //display user data if user is signed in
+  const fetchUserData = async () => {
+    auth.onAuthStateChanged(async (user) => {
+      console.log(user);
+      const docRef = doc(db, "Users", user.uid);
+      const docsnap = await getDoc(docRef);
+
+      if (docsnap.exists()) {
+        setUserDetails(docsnap.data());
+        console.log(docsnap.data());
+      } else {
+        console.log("user is not logged in");
+      }
+    });
+  };
+
+  console.log(userDetails);
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  //sign out
+  const signOut = async () => {
+    try {
+      await auth.signOut();
+      profileRef.current.classList.toggle("info");
+      setUserDetails(!userDetails);
+      navigate("/auth");
+      toast.success("signed out successfully", {
+        position: "bottom-center",
+      });
+    } catch (err) {
+      profileRef.current.classList.toggle("info");
+
+      toast.error(err.message, {
+        position: "bottom-center",
+      });
+    }
   };
 
   // menu toggle icon
@@ -29,6 +85,7 @@ function Header() {
   };
 
   const { cartTotalQuantity } = useSelector((state) => state.cart);
+
   return (
     <div className=" border-b-2 border-solid border-gray-300  ">
       <div className="overflow-hidden flex items-center m-auto  w-[90vw] justify-between mt-6 mb-4 ">
@@ -77,14 +134,18 @@ function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
-                  onClick={burgermenu}
-                  to={"/auth"}
-                  style={activeLink}
-                >
-                  Sign Up
-                </NavLink>
+                {userDetails ? (
+                  ""
+                ) : (
+                  <NavLink
+                    className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
+                    onClick={burgermenu}
+                    to={"/auth"}
+                    style={activeLink}
+                  >
+                    Sign Up
+                  </NavLink>
+                )}
               </li>
             </ul>
           </div>
@@ -108,13 +169,40 @@ function Header() {
               </NavLink>
             </button>
             {/* profile button */}
-            <button>
-              <VscAccount
-                color="#000000"
-                size={20}
-                className="hover:bg-buttonColor rounded-full"
-              />
-            </button>
+            <div>
+              {userDetails ? (
+                <div>
+                  <button onClick={() => toggleProfileInfo()}>
+                    <VscAccount
+                      color="#000000"
+                      size={20}
+                      className="hover:bg-buttonColor rounded-full"
+                    />
+                  </button>
+                </div>
+              ): ""}
+              <div>
+                {userDetails && (
+                  <div
+                    ref={profileRef}
+                    className=" flex-col gap-2 absolute right-6 top-20 z-10 bg-primary p-4 rounded-sm shadow-xl shadow-slate-700 hidden "
+                  >
+                    <span className="text-sm font-normal">
+                      {userDetails.name}
+                    </span>
+                    <span className="text-sm font-normal">
+                      {userDetails.email}
+                    </span>
+                    <NavLink
+                      className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000] underline"
+                      onClick={signOut}
+                    >
+                      Sign Out
+                    </NavLink>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 

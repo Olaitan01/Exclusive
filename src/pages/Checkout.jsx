@@ -40,7 +40,11 @@ function Checkout() {
   };
 
   return (
-    <form action="/" method="POST" className="w-[40vw] mx-auto my-[6em] ">
+    <form
+      action="/"
+      method="POST"
+      className="w-[40vw] mx-auto my-[6em] bg-gray-100 shadow-xl shadow-slate-700 p-6 rounded-sm"
+    >
       <h1 className="font-semibold text-3xl my-4">Checkout details</h1>
       <div>
         <div>
