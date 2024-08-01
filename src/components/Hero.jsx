@@ -4,7 +4,7 @@ import iPhone from "../assets/images/hero_endframe__cvklg0xk3w6e_large 2.png";
 function Hero() {
   return (
     <div className="flex items-top justify-between m-auto  w-[90vw] gap-8 ">
-      <div className="border-r-2 border-solid border-gray-100 hidden desktop:block">
+      <div className="border-r-2 border-solid border-gray-100 hidden tablet:block desktop:block">
         <ul className="flex flex-col gap-4 w-60 pt-4 pr-2">
           <li className="flex  items-center justify-between cursor-pointer ">
             Woman&apos;s Fashion <MdOutlineKeyboardArrowRight size={20} />{" "}

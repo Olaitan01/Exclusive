@@ -99,10 +99,10 @@ function Header() {
         {/* Header Navs */}
         <div
           ref={mobileMenu}
-          className="z-[10] desktop:z-0 flex flex-col absolute gap-6  desktop:gap-0 inset-x-[100em] desktop:inset-0 pl-[3em] pt-[8em] desktop:pl-0 desktop:pt-0 bg-menuBg desktop:bg-transparent h-full  bottom-0 w-full  desktop:flex-row desktop:static desktop:justify-between desktop:items-center desktop:w-[55em]"
+          className="z-[10] desktop:z-0 flex flex-col absolute gap-6 tablet:gap-0 tablet:z-0 tablet:inset-0 tablet:pl-0 tablet:pt-0 tablet:bg-transparent tablet:flex-row  tablet:w-[35em] tablet:static tablet:justify-between tablet:items-center desktop:gap-0 inset-x-[100em] desktop:inset-0 pl-[3em] pt-[8em] desktop:pl-0 desktop:pt-0 bg-menuBg desktop:bg-transparent h-full  bottom-0 w-full  desktop:flex-row desktop:static desktop:justify-between desktop:items-center desktop:w-[55em]"
         >
           <div>
-            <ul className=" flex flex-col gap-6 desktop:gap-0 desktop:flex-row desktop:justify-between font-normal text-2xl  desktop:text-[1rem]  desktop:w-[20vw] ">
+            <ul className=" flex flex-col gap-6 desktop:gap-0 tablet:gap-8 desktop:flex-row tablet:flex-row desktop:justify-between tablet:justify-between font-normal text-2xl tablet:text-[1rem]  desktop:text-[1rem]  desktop:w-[20vw] ">
               <li>
                 <NavLink
                   to="/"

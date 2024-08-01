@@ -30,7 +30,7 @@ export default {
       tablet: [
         {
           min: "834px",
-          max: "1114px",
+          max: "1118px",
         },
       ],
       desktop: [
