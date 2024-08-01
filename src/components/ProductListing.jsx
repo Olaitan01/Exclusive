@@ -16,13 +16,18 @@ function ProductListing({
   const dispatch = useDispatch();
   // const navigate = useNavigate();
 
-
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
-
     // console.log("product added to cart:", product);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
   // const handleProductDetails = (product) => {
   //   dispatch(productDetails(product));
   //   navigate("/productDetailsPage");
@@ -43,12 +48,12 @@ function ProductListing({
             <div>
               <div className="bg-productBg  relative  h-[30vh]  flex items-center justify-center  rounded-md overflow-hidden">
                 <NavLink to={`/productDetailsPage/${flashProduct.name}`}>
-                <img
-                  src={imageMap[flashProduct.imageUrl]}
-                  alt={flashProduct.name}
-                  className="max-w-full  object-fill p-2"
-                  // onClick={() => handleProductDetails(flashProduct)}
-                />
+                  <img
+                    src={imageMap[flashProduct.imageUrl]}
+                    alt={flashProduct.name}
+                    className="max-w-full  object-fill p-2"
+                    onClick={() => scrollToTop()}
+                  />
                 </NavLink>
                 <span
                   className={`${display} absolute top-2 left-4 rounded-[.5em] bg-buttonColor px-3 py-1 text-primary text-[0.7rem] font-light`}

@@ -80,6 +80,7 @@ function ProductDetailsPage({ _data }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
+  console.log(cart);
   const addItemToCart = (item) => {
     dispatch(addToCart(item));
 
@@ -214,13 +215,11 @@ function ProductDetailsPage({ _data }) {
                       -
                     </button>
                     <span className="w-20">
-                      {cart.cartItems?.map((cartItem, index) =>
-                        cartItem.cartQuantity < 1 ? (
-                          <span key={index}>1</span>
-                        ) : (
-                          <span key={index}>{cartItem.cartQuantity}</span>
-                        )
-                      )}
+                      {cart.cartItems?.map((cartItem, index) => (
+                        <span key={index}>
+                          {cartItem.name == name && cartItem.cartQuantity}
+                        </span>
+                      ))}
                     </span>
                     <button
                       className=" font-normal border-l-2 border-solid border-gray-400 px-2 w-8 cursor-pointer hover:bg-buttonColor flex justify-center items-center"

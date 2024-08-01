@@ -24,6 +24,6 @@ function CategoryChildren({categories}) {
 }
 
 CategoryChildren.propTypes = {
-    categories: PropTypes.obj
+    categories: PropTypes.array
 }
 export default CategoryChildren

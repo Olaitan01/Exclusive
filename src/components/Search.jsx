@@ -1,12 +1,10 @@
 import data from "/src/json/db.json";
-import { addToCart } from "../slice/CartSlice";
 
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useRef } from "react";
 
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 import dogsFood from "../assets/images/Frame 604 (1).png";
 import camera from "../assets/images/Frame 604.png";
@@ -36,11 +34,7 @@ function Search() {
   // Ref to access the search results list element (optional)
   const Searchstyle = useRef();
 
-  // Function to navigate programmatically (provided by React Router DOM)
-  const navigate = useNavigate();
-
-  // Function to dispatch actions to the Redux store (provided by Redux)
-  const dispatch = useDispatch();
+ 
 
   // Combine all products from different categories (implementation not shown here)
   const allProducts = [...data.products.Products];
@@ -63,10 +57,15 @@ function Search() {
   };
 
   // Handle product selection from search results
-  const handleProductSearch = (product) => {
+  const handleProductSearch = () => {
     setIsFocused(false);
-    dispatch(addToCart(product)); // Add product to cart using Redux action
-    navigate("/cart"); // Navigate to the cart page
+    window.scrollTo({
+      top: 0,
+      left:0,
+      behavior:"smooth"
+    })
+    //   dispatch(addToCart(product)); // Add product to cart using Redux action
+    //   navigate("/cart"); // Navigate to the cart page
   };
 
   const imageMap = {
@@ -115,19 +114,21 @@ function Search() {
         >
           {filteredProducts.map((val, index) => (
             <div key={index}>
-              <ul
-                className="flex justify-between items-center text-sm cursor-pointer hover:bg-red-50"
-                onClick={() => {
-                  const product = val;
-                  handleProductSearch(product);
-                }}
-              >
-                <li>
-                  <img src={imageMap[val.imageUrl]} alt="" className="w-10" />
-                </li>
-                <li>{val.name}</li>
-                <li>${val.price}</li>
-              </ul>
+              <NavLink to={`/productDetailsPage/${val.name}`}>
+                {" "}
+                <ul
+                  className="flex justify-between items-center text-sm cursor-pointer hover:bg-red-50"
+                  onClick={() => {
+                    handleProductSearch();
+                  }}
+                >
+                  <li>
+                    <img src={imageMap[val.imageUrl]} alt="" className="w-10" />
+                  </li>
+                  <li>{val.name}</li>
+                  <li>${val.price}</li>
+                </ul>
+              </NavLink>
             </div>
           ))}
         </div>
