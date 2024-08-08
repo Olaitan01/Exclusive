@@ -21,11 +21,11 @@ function ProductListing({
     // console.log("product added to cart:", product);
   };
 
-  const scrollToTop = () => {
+ const scrollO = () => {
     window.scrollTo({
       top: 0,
-      left: 0,
-      behavior: "smooth",
+      right: 0,
+      behavior: 'smooth', // Adds smooth scrolling animation
     });
   };
   // const handleProductDetails = (product) => {
@@ -37,6 +37,7 @@ function ProductListing({
 
   return (
     <div className="  my-8 justify-center w-full">
+     
       <div
         className={`flex   items-stretch  overflow-hidden desktop:w-full justify-center gap-2 desktop:justify-between  desktop:gap-6 ${flex}`}
       >
@@ -52,7 +53,7 @@ function ProductListing({
                     src={imageMap[flashProduct.imageUrl]}
                     alt={flashProduct.name}
                     className="max-w-full  object-fill p-2"
-                    onClick={() => scrollToTop()}
+                    onClick={scrollO}
                   />
                 </NavLink>
                 <span
@@ -89,6 +90,7 @@ function ProductListing({
             </div>
           </div>
         ))}
+       
       </div>
     </div>
   );

@@ -50,17 +50,17 @@ function Team() {
         loop={true}
       >
         {teamDetails.map((detail, index) => (
-          <SwiperSlide key={index} className="mySwiper flex flex-col gap-2 ">
+          <SwiperSlide key={index} className="mySwiper flex flex-col gap-4 ">
             <div>
               <div>
                 <img
                   src={detail.img}
                   alt={detail.name}
-                  className="object-fill  max-w-[100%] w-full"
+                  className="object-fill  max-w-[100%] w-full my-2"
                 />
               </div>
               <div>
-                <span className="text-2xl font-medium leading-none">
+                <span className="text-2xl font-medium leading-none ">
                   {detail.name}
                 </span>
               </div>

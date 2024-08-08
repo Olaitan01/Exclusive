@@ -26,13 +26,13 @@ function CategoryFlier() {
             <span className="text-[0.6rem]">Seconds</span>
           </div>
         </div>
-        <ViewAllBtn buttonText="Buy now" bg="bg-lime" m="m-0" />
+        <ViewAllBtn buttonText="Buy now" bg="bg-lime" m="m-0" borderColor="border-lime" />
       </div>
       <div>
         <img
           src={jblSpeaker}
           alt="JBL speaker"
-          className="max-w-full  shadow-white shadow-lg"
+          className="max-w-full"
         />
       </div>
     </div>

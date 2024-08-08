@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //initial state of cart
 const initialState = {
@@ -24,13 +25,17 @@ const cartSlice = createSlice({
       //if index/item had already been added, increase quanitity instead
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
-        //toast/toastify is a cute pop up info
-        toast.info(
-          `increased ${state.cartItems[itemIndex].name} product quantity`,
-          {
-            position: "bottom-left",
-          }
-        );
+
+        <ToastContainer
+          limit={3}
+          toastClassName={toast.info(
+            `increased ${state.cartItems[itemIndex].name} product quantity`,
+            {
+              position: "bottom-left",
+              autoClose: 500,
+            }
+          )}
+        />;
 
         //if index/item hadn't been added or is less that zero, add the item to the cart
       } else {
@@ -39,6 +44,7 @@ const cartSlice = createSlice({
         state.cartTotalQuantity += 1;
         toast.success(`${action.payload.name} added to cart`, {
           position: "bottom-left",
+          autoClose: 500,
         });
       }
 
@@ -54,6 +60,7 @@ const cartSlice = createSlice({
 
       toast.error(`${action.payload.name} removed from cart`, {
         position: "bottom-left",
+        autoClose: 500,
       });
     },
     decreamentCartItem(state, action) {
@@ -65,6 +72,7 @@ const cartSlice = createSlice({
 
         toast.info(`decreased ${action.payload.name} from cart quantity`, {
           position: "bottom-left",
+          autoClose: 500,
         });
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter(
@@ -76,10 +84,11 @@ const cartSlice = createSlice({
 
         toast.error(`${action.payload.name} removed from cart`, {
           position: "bottom-left",
+          autoClose: 500,
         });
       }
     },
-    getTotal(state, action) {
+    getTotal(state) {
       let { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
           const { price, cartQuantity } = cartItem;

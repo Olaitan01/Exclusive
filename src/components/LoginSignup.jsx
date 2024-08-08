@@ -28,7 +28,6 @@ function LoginSignup() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      console.log(user);
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
@@ -36,7 +35,6 @@ function LoginSignup() {
         });
       }
       navigate("/");
-      console.log("registered successfull");
       toast.success("registered successfully", {
         position: "bottom-center",
       });
@@ -58,7 +56,6 @@ function LoginSignup() {
       toast.error(err.message, {
         position: "bottom-center",
       });
-      console.error(err);
     }
   };
 
@@ -66,7 +63,6 @@ function LoginSignup() {
     try {
       await signInWithPopup(auth, googleAuthProvider);
       navigate("/");
-      console.log("registered successfull");
       toast.success("registered successfully", {
         position: "bottom-center",
       });

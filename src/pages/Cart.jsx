@@ -118,7 +118,7 @@ function Cart() {
                           {cartItem.name}
                         </span>
                         <button
-                          className="border-2 border-solid border-slate-400 rounded-sm w-20 text-xs font-medium"
+                          className="border-2 border-solid border-slate-400 rounded-sm w-14 desktop:w-20 tablet:w-20 text-xs font-medium"
                           onClick={() => removeItem(cartItem)}
                         >
                           Remove
@@ -161,14 +161,14 @@ function Cart() {
                   borderColor="border-primaryBlk"
                 />
               </div>
-              <div className="flex flex-col desktop:flex-row gap-8 justify-between items-start">
-                <div className="flex gap-2 items-center">
+              <div className="flex flex-col desktop:flex-row gap-8 justify-between items-start w-full">
+                <div className="flex flex-col desktop:flex-row tablet:flex-row gap-2 items-center w-full">
                   <input
                     type="text"
                     placeholder="Coupon code"
-                    className="border-2 border-primaryBlk bg-inherit rounded-sm py-2 text-sm placeholder:text-gray-400 placeholder:text-[1rem] font-light w-60 "
+                    className="border-2 border-primaryBlk bg-inherit rounded-sm p-2 text-sm placeholder:text-gray-400 placeholder:text-[1rem] font-light w-[100%]  desktop:w-60 tablet:w-60 "
                   />
-                  <ViewAllBtn buttonText="Apply Coupon" />
+                  <ViewAllBtn buttonText="Apply Coupon"  />
                 </div>
                 <div className="border-2 border-primaryBlk rounded-md w-full  desktop:w-80 p-4">
                   <h3 className="font-medium py-2">Cart Total</h3>

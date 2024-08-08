@@ -8,7 +8,6 @@
 *,
 *::after,
 *::before {
-  overflow-x: hidden;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
@@ -20,6 +19,7 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 /* number input field styling */
@@ -33,6 +33,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .menu {
   inset: 0 0 0 10em;
   transition: inset 0.5s ease-in-out;
+  background-color: rgba(203 ,228 ,232, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 /* section header styling */

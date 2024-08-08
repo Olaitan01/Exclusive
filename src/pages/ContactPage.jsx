@@ -5,7 +5,7 @@ import { CiMail } from "react-icons/ci";
 function ContactPage() {
   return (
     <div className="w-[90vw] mx-auto mb-[8em]">
-      <div className="flex gap-2 items-center my-8 text-xs">
+      <div className="flex  gap-2 items-center my-8 text-xs">
         <span className="text-gray-300">
           <NavLink to={"/"}>Home</NavLink>
         </span>
@@ -15,7 +15,7 @@ function ContactPage() {
         </span>
       </div>
 
-      <div className="flex gap-[8em] ">
+      <div className="flex flex-col-reverse desktop:flex-row tablet:flex-row desktop:gap-[8em] tablet:gap-[8em] gap-[2em] ">
         <div className="flex flex-col gap-10  p-8 shadow-lg shadow-slate-300">
           <div className="flex flex-col gap-4">
             <div className="flex  gap-2 items-center">
@@ -50,22 +50,22 @@ function ContactPage() {
         </div>
 
         <div className="flex flex-col gap-8  drop-shadow-sm shadow-slate-300">
-          <div className="flex  gap-6 justify-between items-center w-full">
+          <div className="flex flex-col desktop:flex-row tablet:flex-row  gap-4 desktop:gap-6 tablet:gap-6 justify-between items-center w-full">
             <input
               type="text"
               placeholder="Your Name"
-              className=" bg-productBg placeholder:font-normal placeholder:text-sm placeholder:p-1 rounded-sm w-60 p-2"
+              className=" bg-productBg placeholder:font-normal placeholder:text-sm placeholder:p-1 rounded-sm w-full desktop:w-60 tablet:w-60 p-2"
               required
             />
             <input
               type="Email"
               placeholder="Your Email"
-              className=" bg-productBg placeholder:font-normal placeholder:text-sm placeholder:p-2 rounded-sm w-60 p-2"
+              className=" bg-productBg placeholder:font-normal placeholder:text-sm placeholder:p-2 rounded-sm w-full desktop:w-60 tablet:w-60 p-2 "
             />
             <input
               type="number"
               placeholder="Your Phone"
-              className=" bg-productBg placeholder:font-normal placeholder:text-sm placeholder:p-2 rounded-sm w-60 p-2"
+              className=" bg-productBg placeholder:font-normal placeholder:text-sm placeholder:p-2 rounded-sm w-full desktop:w-60 tablet:w-60 p-2"
             />
           </div>
           <div>

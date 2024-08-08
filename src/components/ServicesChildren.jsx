@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 function ServicesChildren({services, text="text-base",border="border-0",width="w-initial",bg ,iconBg}) {
   return (
-    <div className="flex justify-center desktop:justify-between items-center m-auto w-[70vw] my-20 flex-wrap gap-8  ">
+    <div className="flex justify-center desktop:justify-between tablet:justify-between tablet:w-full tablet:gap-2 items-center m-auto w-[70vw] my-20 flex-wrap gap-8  ">
     {services.map((service, index) => (
       <div
         key={index}

@@ -35,20 +35,15 @@ function Header() {
   //display user data if user is signed in
   const fetchUserData = async () => {
     auth.onAuthStateChanged(async (user) => {
-      console.log(user);
       const docRef = doc(db, "Users", user.uid);
       const docsnap = await getDoc(docRef);
 
       if (docsnap.exists()) {
         setUserDetails(docsnap.data());
         console.log(docsnap.data());
-      } else {
-        console.log("user is not logged in");
       }
     });
   };
-
-  console.log(userDetails);
 
   useEffect(() => {
     fetchUserData();
@@ -64,6 +59,7 @@ function Header() {
       toast.success("signed out successfully", {
         position: "bottom-center",
       });
+      burgermenu();
     } catch (err) {
       profileRef.current.classList.toggle("info");
 
@@ -99,14 +95,14 @@ function Header() {
         {/* Header Navs */}
         <div
           ref={mobileMenu}
-          className="z-[10] desktop:z-0 flex flex-col absolute gap-6 tablet:gap-0 tablet:z-0 tablet:inset-0 tablet:pl-0 tablet:pt-0 tablet:bg-transparent tablet:flex-row  tablet:w-[35em] tablet:static tablet:justify-between tablet:items-center desktop:gap-0 inset-x-[100em] desktop:inset-0 pl-[3em] pt-[8em] desktop:pl-0 desktop:pt-0 bg-menuBg desktop:bg-transparent h-full  bottom-0 w-full  desktop:flex-row desktop:static desktop:justify-between desktop:items-center desktop:w-[55em]"
+          className="z-[10] desktop:z-0 flex flex-col fixed gap-6  desktop:gap-0 inset-x-[100em] desktop:inset-0 pl-[3em] pt-[8em] desktop:pl-0 desktop:pt-0 desktop:bg-transparent   desktop:flex-row desktop:static desktop:justify-between desktop:items-center desktop:w-[55em]"
         >
           <div>
-            <ul className=" flex flex-col gap-6 desktop:gap-0 tablet:gap-8 desktop:flex-row tablet:flex-row desktop:justify-between tablet:justify-between font-normal text-2xl tablet:text-[1rem]  desktop:text-[1rem]  desktop:w-[20vw] ">
+            <ul className=" flex flex-col gap-6 desktop:gap-0 tablet:gap-8 desktop:flex-row  desktop:justify-between  font-normal text-3xl   desktop:text-[1rem]  desktop:w-[20vw] ">
               <li>
                 <NavLink
                   to="/"
-                  className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000]"
+                  className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000] hidden tablet:hidden desktop:block"
                   onClick={burgermenu}
                   style={activeLink}
                 >
@@ -147,23 +143,30 @@ function Header() {
                   </NavLink>
                 )}
               </li>
+              <li>
+                {userDetails && (
+                  <div className="block tablet:block desktop:hidden">
+                    <NavLink onClick={signOut}>Sign Out</NavLink>
+                  </div>
+                )}
+              </li>
             </ul>
           </div>
 
-          <div className="flex gap-[2em]  desktop:justify-between items-center pl-2 pr-2 ">
+          <div className="flex desktop:gap-[2em]  desktop:justify-between items-center desktop:pl-2 desktop:pr-2 ">
             {/* search box */}
-            <div>
+            <div className="hidden tablet:hidden desktop:block">
               <Search />
             </div>
             {/* likes button */}
-            <button className="m-4">
+            <button className="m-4 hidden tablet:hidden desktop:block">
               <BsHeart color="#000000" />
             </button>
             {/* cart button */}
-            <button className="">
+            <button className="hidden tablet:hidden desktop:block">
               <NavLink to={"/cart"}>
                 <BsCart3 color="#000000" />
-                <p className="absolute top-6 text-center font-bold text-sm p-0.5  text-primary bg-buttonColor rounded-full ml-3">
+                <p className="absolute top-0 text-center font-bold text-sm p-0.5  text-primary bg-buttonColor rounded-full ml-3">
                   {cartTotalQuantity}
                 </p>
               </NavLink>
@@ -171,7 +174,7 @@ function Header() {
             {/* profile button */}
             <div>
               {userDetails ? (
-                <div>
+                <div className="hidden tablet:hidden desktop:block">
                   <button onClick={() => toggleProfileInfo()}>
                     <VscAccount
                       color="#000000"
@@ -180,8 +183,10 @@ function Header() {
                     />
                   </button>
                 </div>
-              ): ""}
-              <div>
+              ) : (
+                ""
+              )}
+              <div className="hidden tablet:hidden desktop:block">
                 {userDetails && (
                   <div
                     ref={profileRef}
@@ -193,10 +198,7 @@ function Header() {
                     <span className="text-sm font-normal">
                       {userDetails.email}
                     </span>
-                    <NavLink
-                      className=" hover:border-b-[0.1px] hover:border-solid hover:border-[#000000] underline"
-                      onClick={signOut}
-                    >
+                    <NavLink className=" underline" onClick={signOut}>
                       Sign Out
                     </NavLink>
                   </div>
@@ -208,7 +210,7 @@ function Header() {
 
         {/* mobile hambugger menu */}
         <button
-          className="tablet:hidden desktop:hidden z-10 block"
+          className=" desktop:hidden z-10 block"
           onClick={() => burgermenu()}
         >
           {!icon ? <RxHamburgerMenu size={30} /> : <AiOutlineClose size={30} />}

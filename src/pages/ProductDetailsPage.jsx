@@ -30,6 +30,7 @@ import ComfortChair from "../assets/images/sam-moghadam-khamseh-kvmdsTrGOBM-unsp
 import fiveStars from "../assets/images/Five star.png";
 
 import { addToCart, decreamentCartItem } from "../slice/CartSlice";
+import { useState } from "react";
 
 function ProductDetailsPage({ _data }) {
   const imageMap = {
@@ -80,19 +81,26 @@ function ProductDetailsPage({ _data }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
-  console.log(cart);
   const addItemToCart = (item) => {
     dispatch(addToCart(item));
 
     // console.log("product added to cart:", product);
   };
 
+  const [isQuantity, setIsQuantity] = useState(0);
+
   const incrementItemQuantity = (item) => {
+    setIsQuantity(isQuantity + 1);
     dispatch(addToCart(item));
   };
 
   const decrementItemQuantity = (item) => {
-    dispatch(decreamentCartItem(item));
+    if (isQuantity === 0) {
+      return;
+    } else {
+      setIsQuantity(isQuantity - 1);
+      dispatch(decreamentCartItem(item));
+    }
   };
 
   return (
@@ -111,37 +119,37 @@ function ProductDetailsPage({ _data }) {
         .map((item, index) => (
           <div
             key={index}
-            className="flex flex-col desktop:flex-row gap-[10em] items-start "
+            className="flex flex-col desktop:flex-row tablet:flex-row ipad:flex-row ipadmini:flex-row desktop:gap-[10em] gap-4 items-start "
           >
             <div>
-              <div className="flex gap-[6em] items-stretch">
-                <div className="flex flex-col gap-6">
+              <div className="flex flex-col-reverse desktop:flex-row tablet:flex-row  desktop:gap-[6em] gap-4 items-stretch">
+                <div className="flex flex-row desktop:flex-col tablet:flex-col gap-6">
                   <div style={itemsStyle}>
                     <img
                       src={imageMap[item.imageUrl]}
                       alt={item.name}
-                      className="w-20"
+                      className="w-20 desktop:w-40"
                     />
                   </div>
                   <div style={itemsStyle}>
                     <img
                       src={imageMap[item.imageUrl]}
                       alt={item.name}
-                      className="w-20"
+                      className="w-20 desktop:w-40"
                     />
                   </div>
                   <div style={itemsStyle}>
                     <img
                       src={imageMap[item.imageUrl]}
                       alt={item.name}
-                      className="w-20"
+                      className="w-20 desktop:w-40"
                     />
                   </div>
                   <div style={itemsStyle}>
                     <img
                       src={imageMap[item.imageUrl]}
                       alt={item.name}
-                      className="w-20"
+                      className="w-20 desktop:w-40"
                     />
                   </div>
                 </div>
@@ -149,7 +157,7 @@ function ProductDetailsPage({ _data }) {
                   <img
                     src={imageMap[item.imageUrl]}
                     alt={item.name}
-                    className="w-[20vw]   "
+                    className="desktop:w-[20vw] w-full    "
                   />
                 </div>
               </div>
@@ -206,7 +214,7 @@ function ProductDetailsPage({ _data }) {
                     </span>
                   </div>
                 </div>
-                <div className="flex items-stretch gap-4 my-4">
+                <div className="flex  items-stretch gap-4 my-4">
                   <div className="border-2 border-gray-400 border-collapse w-28 flex justify-between items-center text-2xl font-bold text-center ">
                     <button
                       className="font-normal border-r-2 border-solid border-gray-400 px-2 w-8 cursor-pointer hover:bg-buttonColor flex items-center justify-center"
@@ -215,11 +223,12 @@ function ProductDetailsPage({ _data }) {
                       -
                     </button>
                     <span className="w-20">
-                      {cart.cartItems?.map((cartItem, index) => (
+                      {/* {cart.cartItems?.map((cartItem, index) => (
                         <span key={index}>
                           {cartItem.name == name && cartItem.cartQuantity}
                         </span>
-                      ))}
+                      ))} */}
+                      {isQuantity}
                     </span>
                     <button
                       className=" font-normal border-l-2 border-solid border-gray-400 px-2 w-8 cursor-pointer hover:bg-buttonColor flex justify-center items-center"
@@ -230,7 +239,7 @@ function ProductDetailsPage({ _data }) {
                   </div>
                   <div>
                     <button
-                      className="bg-buttonColor  rounded-sm text-center text-primary py-1 w-40 font-medium text-xl"
+                      className="bg-buttonColor  rounded-sm text-center text-primary py-1 w-24 desktop:w-40 font-medium text-xl"
                       onClick={() => addItemToCart(item)}
                     >
                       Buy Now

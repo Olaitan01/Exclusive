@@ -7,7 +7,6 @@ import CategoryFlier from "../components/CategoryFlier";
 import Products from "../components/Products";
 import ProductArrival from "../components/ProductArrival";
 import Services from "../components/Services";
-import Mobilemenu from "../components/Mobilemenu";
 const HomePage = () => {
   return (
     <div >
@@ -20,7 +19,7 @@ const HomePage = () => {
       <Products />
       <ProductArrival />
       <Services />
-      <Mobilemenu/>
+      
     </div>
   );
 };

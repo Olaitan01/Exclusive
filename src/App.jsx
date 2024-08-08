@@ -5,6 +5,7 @@ import Footer from "./components/Footer.jsx";
 import { cartTotalQuantity } from "./slice/CartSlice.jsx";
 import { ToastContainer } from "react-toastify";
 import { FetchData } from "./utilis/FetchData.jsx";
+import Mobilemenu from "./components/Mobilemenu"
 
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect, useState } from "react";
@@ -33,6 +34,7 @@ function App() {
           />
         ))}
       </Routes>
+      <Mobilemenu/>
       <Footer />
     </div>
   );
