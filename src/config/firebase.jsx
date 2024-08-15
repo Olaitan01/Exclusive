@@ -8,10 +8,10 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
-const authKey = import.meta.env.VITE_AUTHKEY;
+const authKey = import.meta.env.VITE_AUTHKEY ;
 
 const firebaseConfig = {
-  apiKey: authKey,
+  apiKey:`${authKey}`,
   authDomain: "exclusive-99301.firebaseapp.com",
   projectId: "exclusive-99301",
   storageBucket: "exclusive-99301.appspot.com",
