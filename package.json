@@ -9,7 +9,6 @@
     "build": "vite build ",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "merge-json": "node mergeJsonFiles.mjs",
     "server": "node --watch --env-file=.env server"
   },
   "dependencies": {
