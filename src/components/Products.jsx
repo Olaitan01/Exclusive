@@ -8,12 +8,12 @@ import imageMap from "./ImageMap";
 function Products() {
   const [isProducts, setIsProducts] = useState([]);
 
-  const productApi = "/api/products";
+  const productApi = "/api";
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await FetchData(productApi);
+      const res = await FetchData(productApi);
 
-      setIsProducts(data.Products);
+      setIsProducts(res[2].products.Products);
     };
 
     fetchProducts();

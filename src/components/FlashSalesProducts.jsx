@@ -6,12 +6,11 @@ import { FetchData } from "../utilis/FetchData";
 
 function FlashSalesProducts() {
   const [flashProducts, setFlashProducts] = useState([]);
-
-  const flashProductsApi = "/api/flashSales";
+const flashProductsApi = "/api"
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await FetchData(flashProductsApi);
-      setFlashProducts(data.flashProducts);
+      const res = await FetchData(flashProductsApi);
+      setFlashProducts(res[0].flashSales.flashProducts);
     };
 
     fetchProducts();

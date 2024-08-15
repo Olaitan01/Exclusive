@@ -3,7 +3,6 @@
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 import { CiHeart } from "react-icons/ci";
@@ -79,7 +78,6 @@ function ProductDetailsPage({ _data }) {
   };
 
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
 
   const addItemToCart = (item) => {
     dispatch(addToCart(item));

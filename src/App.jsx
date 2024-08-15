@@ -12,10 +12,11 @@ import { useEffect, useState } from "react";
 function App() {
   const [isdata, setIsData] = useState([]);
 
+  const productsApi = "/api"
   useEffect(() => {
     const setData = async () => {
-      const data = await FetchData("http://localhost:8000/products");
-      setIsData(data.Products);
+      const res = await FetchData(productsApi);
+      setIsData(res[2].products.Products);
     };
     setData();
   },[]);

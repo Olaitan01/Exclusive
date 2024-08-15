@@ -13,7 +13,7 @@ function Checkout() {
     dispatch(getTotal());
   }, [cartTotal, dispatch]);
 
-  const publicKey = "pk_test_b29e19ee9aaec577d1abd5330e2dba1413a57cb8";
+  const publicKey = import.meta.env.VITE_PAYMENTKEY;
 
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
@@ -31,6 +31,7 @@ function Checkout() {
     },
     publicKey,
     onSuccess: () => Navigation("/cart"),
+    
   };
 
   const style = {
@@ -40,9 +41,8 @@ function Checkout() {
   };
 
   return (
-    <form
-      action="/"
-      method="POST"
+    <div
+      
       className="w-[40vw] mx-auto my-[6em] bg-gray-100 shadow-xl shadow-slate-700 p-6 rounded-sm"
     >
       <h1 className="font-semibold text-3xl my-4">Checkout details</h1>
@@ -94,7 +94,7 @@ function Checkout() {
       <PaystackButton className={style.button} {...componentProps}>
         Make Payment
       </PaystackButton>
-    </form>
+    </div>
   );
 }
 

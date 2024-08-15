@@ -136,6 +136,6 @@ function Search({ handleVisibility, isVisible }) {
 export default Search;
 
 Search.propTypes = {
-  isVisible: PropTypes.bool.isRequired,
-  handleVisibility: PropTypes.func.isRequired,
+  isVisible: PropTypes.bool,
+  handleVisibility: PropTypes.func,
 };

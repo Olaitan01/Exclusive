@@ -7,12 +7,11 @@ import imageMap from "./ImageMap";
 function BestSelling() {
   const [isBestSelling, setIsBestSelling] = useState([]);
 
-  const bestSellingApi = "/api/bestSelling";
+  const bestSellingApi = "/api";
   useEffect(() => {
     const FetchBestSelling = async () => {
-      const data = await FetchData(bestSellingApi);
-
-      setIsBestSelling(data.BestSelling);
+      const res = await FetchData(bestSellingApi);
+      setIsBestSelling(res[1].bestSelling.BestSelling);
     };
 
     FetchBestSelling();
