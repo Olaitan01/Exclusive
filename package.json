@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server",
     "dev": "vite",
-    "build": "vite build",
+    "build:frontend": "vite build ",
+    "build:backend": "node server ",
+    "build": "npm run build:frontend && npm run build:backend && zip -r build.zip dist ",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "merge-json": "node mergeJsonFiles.mjs",
