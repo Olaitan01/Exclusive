@@ -12,6 +12,8 @@ const app = express();
 
 const port = process.env.PORT ;
 
+console.log(port)
+
 app.use(cors());
 
 app.get("/", (req, res) => {
