@@ -12,14 +12,14 @@ import { useEffect, useState } from "react";
 function App() {
   const [isdata, setIsData] = useState([]);
 
-  const productsApi = "/api"
+  const productsApi = import.meta.env.VITE_PRODUCTAPI
   useEffect(() => {
     const setData = async () => {
       const res = await FetchData(productsApi);
       setIsData(res[2].products.Products);
     };
     setData();
-  },[]);
+  });
 
   return (
     <div>

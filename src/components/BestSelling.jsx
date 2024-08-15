@@ -7,15 +7,16 @@ import imageMap from "./ImageMap";
 function BestSelling() {
   const [isBestSelling, setIsBestSelling] = useState([]);
 
-  const bestSellingApi = "/api";
+  const bestSellingApi = import.meta.env.VITE_PRODUCTAPI;
   useEffect(() => {
     const FetchBestSelling = async () => {
       const res = await FetchData(bestSellingApi);
+
       setIsBestSelling(res[1].bestSelling.BestSelling);
     };
 
     FetchBestSelling();
-  }, []);
+  });
 
   return (
     <div className="w-[90vw] m-auto ">

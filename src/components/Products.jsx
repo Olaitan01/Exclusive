@@ -8,7 +8,7 @@ import imageMap from "./ImageMap";
 function Products() {
   const [isProducts, setIsProducts] = useState([]);
 
-  const productApi = "/api";
+  const productApi = import.meta.env.VITE_PRODUCTAPI;
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await FetchData(productApi);
@@ -17,7 +17,7 @@ function Products() {
     };
 
     fetchProducts();
-  }, []);
+  });
 
   return (
     <div className="w-[90vw] m-auto">

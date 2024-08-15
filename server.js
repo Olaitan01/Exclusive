@@ -2,7 +2,7 @@ import express from "express";
 import product from "./backend/product.js";
 import errorHandling from "./backend/error.js";
 import cors from "cors";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -10,13 +10,14 @@ dotenv.config();
 
 const app = express();
 
-const port = process.env.PORT ;
+const port = process.env.PORT;
 
-console.log(port)
+console.log(port);
 
 app.use(cors());
 
 app.get("/", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
   res.status(200).send(product);
 });
 

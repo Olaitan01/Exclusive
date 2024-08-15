@@ -6,7 +6,7 @@ import { FetchData } from "../utilis/FetchData";
 
 function FlashSalesProducts() {
   const [flashProducts, setFlashProducts] = useState([]);
-const flashProductsApi = "/api"
+  const flashProductsApi = import.meta.env.VITE_PRODUCTAPI;
   useEffect(() => {
     const fetchProducts = async () => {
       const res = await FetchData(flashProductsApi);
@@ -14,7 +14,7 @@ const flashProductsApi = "/api"
     };
 
     fetchProducts();
-  }, []);
+  });
 
   return (
     <div className="desktop:ml-16 desktop:pb-10 p-6 desktop:p-0  border-b-2 border-solid border-gray-100 overflow-hidden">
