@@ -35,19 +35,22 @@ function Header() {
   //display user data if user is signed in
   const fetchUserData = async () => {
     auth.onAuthStateChanged(async (user) => {
-      const docRef = doc(db, "Users", user.uid);
-      const docsnap = await getDoc(docRef);
+      try {
+        const docRef = doc(db, "Users", user.uid);
+        const docsnap = await getDoc(docRef);
 
-      if (docsnap.exists()) {
-        setUserDetails(docsnap.data());
-        console.log(docsnap.data());
+        if (docsnap.exists()) {
+          setUserDetails(docsnap.data());
+        }
+      } catch (error) {
+        return;
       }
     });
   };
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  });
 
   //sign out
   const signOut = async () => {

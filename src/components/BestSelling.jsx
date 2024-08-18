@@ -16,7 +16,7 @@ function BestSelling() {
     };
 
     FetchBestSelling();
-  });
+  },[bestSellingApi]);
 
   return (
     <div className="w-[90vw] m-auto ">

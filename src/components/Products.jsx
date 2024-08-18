@@ -17,7 +17,7 @@ function Products() {
     };
 
     fetchProducts();
-  });
+  },[productApi]);
 
   return (
     <div className="w-[90vw] m-auto">

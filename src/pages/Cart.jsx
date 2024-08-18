@@ -73,7 +73,7 @@ function Cart() {
   };
 
   return (
-    <div className="w-[90vw] m-auto">
+    <div className="w-[90vw] m-auto h-[100vh] ">
       <div className="flex gap-2 items-center my-8 text-xs">
         <span className="cursor-pointer text-gray-300">
           <NavLink to={"/"}>Home</NavLink>

@@ -74,7 +74,7 @@ function LoginSignup() {
   };
 
   return (
-    <div>
+    <div className="h-[100vh] desktop:h-[initial]">
       <div className="mx-auto max-w-sm grid gap-4">
         <div className="mb-8">
           <div>

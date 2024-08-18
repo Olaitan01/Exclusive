@@ -14,7 +14,7 @@ function FlashSalesProducts() {
     };
 
     fetchProducts();
-  });
+  },[flashProductsApi]);
 
   return (
     <div className="desktop:ml-16 desktop:pb-10 p-6 desktop:p-0  border-b-2 border-solid border-gray-100 overflow-hidden">
