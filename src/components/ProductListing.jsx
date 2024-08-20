@@ -36,7 +36,7 @@ function ProductListing({
   // };
 
   return (
-    <div className="  my-8 justify-center w-full">
+    <div className="  my-8 justify-center ">
      
       <div
         className={`flex   items-stretch  overflow-hidden desktop:w-full justify-center gap-2 desktop:justify-between  desktop:gap-6 ${flex}`}

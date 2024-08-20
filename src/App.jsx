@@ -24,7 +24,7 @@ function App() {
   return (
     <div>
       <ToastContainer />
-      <div className="">
+      <div>
         <Header />
         <Routes>
           {RoutesPage.map((route) => (

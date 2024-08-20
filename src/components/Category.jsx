@@ -36,7 +36,7 @@ function Category() {
   ];
 
   return (
-    <div className="border-b-2 border-gray-100 border-solid w-[90vw] m-auto mb-4 pb-6 overflow-hidden">
+    <div className=" border-b-2 border-gray-100 border-solid w-[90vw] m-auto mb-4 pb-6 overflow-hidden">
       <SectionHeader
         headerTitle="Browse By Category"
         title="Categories"

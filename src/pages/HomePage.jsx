@@ -9,7 +9,7 @@ import ProductArrival from "../components/ProductArrival";
 import Services from "../components/Services";
 const HomePage = () => {
   return (
-    <div >
+    <div  >
       <Hero />
       <SaleCountdown />
       <FlashSalesProducts />

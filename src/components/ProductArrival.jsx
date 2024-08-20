@@ -2,7 +2,7 @@ import SectionHeader from "./SectionHeader";
 import ArrivalGrid from "./ArrivalGrid";
 function ProductArrival() {
   return (
-    <div>
+    <div >
       <SectionHeader
         title="Featured"
         headerTitle="New Arrival"

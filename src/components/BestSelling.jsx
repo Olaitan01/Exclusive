@@ -19,7 +19,7 @@ function BestSelling() {
   },[bestSellingApi]);
 
   return (
-    <div className="w-[90vw] m-auto ">
+    <div className=" w-[90vw] m-auto ">
       <SectionHeader
         isFlashSales={true}
         headerTitle="Best Selling Products"

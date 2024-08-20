@@ -20,7 +20,7 @@ function Products() {
   },[productApi]);
 
   return (
-    <div className="w-[90vw] m-auto">
+    <div className=" w-[90vw] m-auto ">
       <SectionHeader
         title="Our Products"
         headerTitle="Explore Our Products"

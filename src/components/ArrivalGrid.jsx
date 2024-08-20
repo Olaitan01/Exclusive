@@ -19,10 +19,10 @@ function ArrivalGrid() {
   };
 
   return (
-    <div className="w-[90vw] m-auto flex flex-col desktop:flex-row justify-between items-stretch gap-4 my-4">
-      <div className="bg-primaryBlk w-full flex justify-center relative">
+    <div className=" w-[90vw] m-auto flex flex-col desktop:flex-row justify-between items-stretch gap-4 my-4">
+      <div className=" bg-primaryBlk w-full  justify-center relative">
         <div>
-          <img src={ps5} alt="p25" className="object-fit max-w-full" />
+          <img src={ps5} alt="playstation 5" className="object-fit max-w-full" />
         </div>
         <div style={textStyle}>
           <p className="font-medium text-2xl">PlayStation 5</p>
@@ -33,7 +33,7 @@ function ArrivalGrid() {
         </div>
       </div>
       <div className="flex flex-col gap-4 justify-center w-full ">
-        <div className="bg-[#0D0D0D] flex justify-center relative w-full ">
+        <div className="bg-[#0D0D0D]  justify-center relative w-full ">
           <div>
             <img
               src={womenscollection}
@@ -49,8 +49,8 @@ function ArrivalGrid() {
             <button style={buttonStyle}>Shop Now</button>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <div className="bg-[#0D0D0D] flex justify-center relative w-full">
+        <div className="flex flex-col desktop:flex-row tablet:flex-row gap-4 desktop:gap-2 tablet:gap-2  items-center ">
+          <div className="bg-[#0D0D0D]  justify-center relative w-full">
             <div>
               <img
                 src={speaker}
@@ -66,7 +66,7 @@ function ArrivalGrid() {
               <button style={buttonStyle}>Shop Now</button>
             </div>
           </div>
-          <div className="bg-[#0D0D0D] flex justify-center relative w-full">
+          <div className="bg-[#0D0D0D]  justify-center relative w-full">
             <div>
               <img
                 src={perfume}
