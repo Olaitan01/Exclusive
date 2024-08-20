@@ -43,7 +43,7 @@ function Checkout() {
   return (
     <div
       
-      className="w-[40vw] mx-auto my-[6em] bg-gray-100 shadow-xl shadow-slate-700 p-6 rounded-sm"
+      className="desktop:w-[40vw] tablet:w-[40vw] ipadmini:w-[40vw] ipad:w-[40vw] w-full mx-auto my-[6em] bg-gray-100 shadow-xl shadow-slate-700 p-6 rounded-sm"
     >
       <h1 className="font-semibold text-3xl my-4">Checkout details</h1>
       <div>
