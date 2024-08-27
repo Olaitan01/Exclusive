@@ -1,5 +1,6 @@
 import { RoutesPage } from "./pages/RoutesPage";
 import { Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import { cartTotalQuantity } from "./slice/CartSlice.jsx";
@@ -24,23 +25,23 @@ function App() {
   return (
     <div>
       <ToastContainer />
-      <div>
-        <Header />
-        <Routes>
-          {RoutesPage.map((route) => (
-            <Route
-              key={route.path}
-              exact
-              path={route.path}
-              element={
-                <route.component itemNo={cartTotalQuantity} _data={isdata} />
-              }
-            />
-          ))}
-        </Routes>
-        <Mobilemenu />
-        <Footer />
-      </div>
+
+      <Header />
+      <Routes>
+        {RoutesPage.map((route) => (
+          <Route
+            key={route.path}
+            exact
+            path={route.path}
+            element={
+              <route.component itemNo={cartTotalQuantity} _data={isdata} />
+            }
+          />
+        ))}
+      </Routes>
+      <Mobilemenu />
+      <Footer />
+      <Analytics />
     </div>
   );
 }

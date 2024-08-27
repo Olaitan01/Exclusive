@@ -14,30 +14,21 @@ function ProductListing({
   flex = "flex-nowrap",
 }) {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
-    // console.log("product added to cart:", product);
   };
 
- const scrollO = () => {
+  const scrollO = () => {
     window.scrollTo({
       top: 0,
       right: 0,
-      behavior: 'smooth', // Adds smooth scrolling animation
+      behavior: "smooth", // Adds smooth scrolling animation
     });
   };
-  // const handleProductDetails = (product) => {
-  //   dispatch(productDetails(product));
-  //   navigate("/productDetailsPage");
-
-  //   // console.log("product added to cart:", product);
-  // };
 
   return (
     <div className="  my-8 justify-center ">
-     
       <div
         className={`flex   items-stretch  overflow-hidden desktop:w-full justify-center gap-2 desktop:justify-between  desktop:gap-6 ${flex}`}
       >
@@ -90,7 +81,6 @@ function ProductListing({
             </div>
           </div>
         ))}
-       
       </div>
     </div>
   );

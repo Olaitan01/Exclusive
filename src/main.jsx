@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import "./index.css";
 import CartReducer, { getTotal } from "./slice/CartSlice.jsx";
 
+
 const store = configureStore({
   reducer: {
     cart: CartReducer,

@@ -22,6 +22,7 @@ const cartSlice = createSlice({
         (item) => item.name === action.payload.name
       );
 
+      console.log(itemIndex)
       //if index/item had already been added, increase quanitity instead
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;

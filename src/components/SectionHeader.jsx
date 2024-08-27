@@ -12,8 +12,6 @@ function SectionHeader({
   marginTop = "mt-8",
   display = "block",
 }) {
-  // is the product flash sales or not function
-
   //   Flash sales countdown
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
